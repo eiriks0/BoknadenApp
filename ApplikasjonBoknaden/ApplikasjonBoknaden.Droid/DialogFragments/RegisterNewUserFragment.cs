@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
@@ -48,6 +49,21 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         protected ValidationResponse ValidationResponder = new ValidationResponse();
 
 
+     //   public override void OnCreate(Bundle savedInstanceState)
+      //  {
+      //      base.OnCreate(savedInstanceState);
+
+            // Create your fragment here
+     //   }
+
+       // public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+       // {
+            // Use this to return your custom view for this Fragment
+            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+         //   return inflater.Inflate(Resource.Layout.RegisterNewUserFragmentLayout, container, false);
+            //return base.OnCreateView(inflater, container, savedInstanceState);
+     //   }
+
         protected override int LayoutSetter()
         {
             return Resource.Layout.RegisterNewUserFragmentLayout;
@@ -82,13 +98,9 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             InputFieldRepeatedPassword = Dialogueview.FindViewById<Android.Widget.EditText>(Resource.Id.editTextRepeatedPassword);
 
 
-          //  Android.Widget.Button BackToLoginActivutyButton = Dialogueview.FindViewById<Android.Widget.Button>(Resource.Id.BackToLoginActivityButton);
-          //  BackToLoginActivutyButton.Click += delegate {
-             //   StartActivity(typeof(MainActivity));
-           // };
-
             Android.Widget.Button RegisterButton = Dialogueview.FindViewById<Android.Widget.Button>(Resource.Id.RegisterUserButton);
             RegisterButton.Click += delegate {
+
                 ValidateInput();
             };
 

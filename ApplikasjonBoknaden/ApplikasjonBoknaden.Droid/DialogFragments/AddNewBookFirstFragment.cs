@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using ZXing.Mobile;
 using Android.Support.V7.Widget;
+using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {

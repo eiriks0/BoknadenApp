@@ -2,7 +2,7 @@ package md50197b187b8fc934de3e002d6de4dc3a4;
 
 
 public class MainMenuActivity
-	extends android.support.v4.app.FragmentActivity
+	extends md50dd8f2652d8b7e9abf60791ffb49a0cd.CustomFragmentActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -11,7 +11,6 @@ public class MainMenuActivity
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
-			"n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("ApplikasjonBoknaden.Droid.MainMenuActivity, ApplikasjonBoknaden.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", MainMenuActivity.class, __md_methods);
 	}
@@ -31,14 +30,6 @@ public class MainMenuActivity
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
-
-
-	public void onActivityResult (int p0, int p1, android.content.Intent p2)
-	{
-		n_onActivityResult (p0, p1, p2);
-	}
-
-	private native void n_onActivityResult (int p0, int p1, android.content.Intent p2);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

@@ -2,7 +2,7 @@ package md50197b187b8fc934de3e002d6de4dc3a4;
 
 
 public class LoginActivity
-	extends android.support.v4.app.FragmentActivity
+	extends md50dd8f2652d8b7e9abf60791ffb49a0cd.CustomFragmentActivity
 	implements
 		mono.android.IGCUserPeer
 {

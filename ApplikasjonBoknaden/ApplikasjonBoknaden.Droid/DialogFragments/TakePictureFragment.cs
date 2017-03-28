@@ -16,6 +16,7 @@ using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using ZXing.Mobile;
 using Android.Graphics;
+using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
@@ -52,7 +53,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private string[] schoolnamesarr1 = new string[] { "Uspesifisert", "Lunde", "Bø", "Horten" };
         private string[] ClassNamesarr = new string[] { "Uspesifisert", "IT", "Helse", "Religion" };
 
-        private MainMenuActivity mainMenuActivity;
+        
         static int REQUEST_IMAGE_CAPTURE = 1;
         private string PassedISBN = "";
 
@@ -62,16 +63,6 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private Button NextStepButtonNew = null;
 
         private EditText ManualISBNInput = null;
-
-
-
-
-
-        public void Show(Android.Support.V4.App.FragmentManager manager, string tag, FragmentActivity caller, MainMenuActivity mma)
-        {
-            Show(manager, tag, caller);
-            mainMenuActivity = mma;
-        }
 
 
         protected override int LayoutSetter()
