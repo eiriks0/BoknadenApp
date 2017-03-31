@@ -9,21 +9,73 @@ using System.Text;
 using System.Threading.Tasks;
 using ApplikasjonBoknaden.JsonHelpers;
 using System.Net;
+using System.IO;
+using System.Net.Http.Formatting;
 
-namespace ApplikasjonBoknaden
+namespace ApplikasjonBoknaden.Json
 {
-   public static class JsonUploader
+    /// <summary>
+    /// http://www.newtonsoft.com/json
+    /// https://github.com/dvsekhvalnov/jose-pcl
+    /// </summary>
+    public static class JsonUploader
     {
 
         private static string AutenticationURL = "http://146.185.164.20:57483/authenticate"; //http://146.185.164.20:57483/authenticate
         private static string UsersURL = "http://146.185.164.20:57483/users"; //http://146.185.164.20:57483/users //http://10.0.0.58:57483/users
+        private static string AdURL = "http://146.185.164.20:57483/ads";
 
-        public static async Task<string> AutenticateUser()
+
+
+
+        /// <summary>
+        /// Checks given User and returns respons from database (Sucessfull or unsucessfull)
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async Task<HttpResponseMessage> CheckLoginCredentials(UserOld user)
         {
 
-            string jsonData1 = @"{
-                ""username"" : ""Hay55"", 
-            ""passphrase"" : ""Halla""}";
+            UserCredentialsUsername ucu = new UserCredentialsUsername();
+            ucu.passphrase = user.Password;
+            ucu.username = user.Username;
+
+            string jsonData1 = JsonConvert.SerializeObject(ucu);
+           // string jsonData1 = JsonConvert.SerializeObject(ucu);
+
+            // string jsonData1 = @"{
+            //     ""username"" : ""SexyNic"", 
+            //  ""passphrase"" : ""halla""}";
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var content = new StringContent(jsonData1, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(AutenticationURL, content);
+                    return response;
+                }
+            }
+            catch (Exception exception)
+            {
+                System.Diagnostics.Debug.WriteLine("Nay");
+                System.Diagnostics.Debug.WriteLine("CAUGHT EXCEPTION:");
+                System.Diagnostics.Debug.WriteLine(exception);
+                return null;
+            }
+        }
+
+        public static async Task<string> AutenticateUser(UserOld user)
+        {
+            UserCredentialsUsername ucu = new UserCredentialsUsername();
+            ucu.passphrase = user.Password;
+            ucu.username = user.Username;
+
+            string jsonData1 = JsonConvert.SerializeObject(ucu);
+
+           // string jsonData1 = @"{
+          //      ""username"" : ""SexyNic"", 
+          //  ""passphrase"" : ""halla""}";
 
             try
             {
@@ -38,14 +90,26 @@ namespace ApplikasjonBoknaden
             
 
                     // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-                    string result = await response.Content.ReadAsStringAsync();
+                    JToken jt = await response.Content.ReadAsStringAsync();
+
+                    string result = jt.ToString();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return result;
+                    }
+                    else
+                    {
+                        result = "Feil brukernavn eller passord";
+                        return result;
+                    }
 
                  //   Newtonsoft.Json.Linq.JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(result);
                 //    JToken token = JObject.Parse(jObject.ToString());
                   //  var t = result.t
 
                      //System.Diagnostics.Debug.WriteLine(t);
-                    return result;
+                  //  return result;
                 }
             }
             catch (Exception exception)
@@ -69,11 +133,12 @@ namespace ApplikasjonBoknaden
         /// <returns></returns>
         public static async Task RegisterNewBookAd()
         {
-            NewBook newbook = new NewBook();
-            newbook.userid = "1";
-            newbook.courseid = "1";
-            newbook.universityid = "1";
-            newbook.adname = "Ny bok!";
+            Aditem newbook = new Aditem();
+            //newbook.userid = "1";
+           // newbook.courseid = "1";
+           // newbook.universityid = "1";
+          //  newbook.adname = "Ny bok!";
+
 
             string jsonData = JsonConvert.SerializeObject(newbook);
             // var client = new HttpClient();
@@ -177,7 +242,7 @@ namespace ApplikasjonBoknaden
             //var client = new HttpClient();
             // client.BaseAddress = new Uri("http://146.185.164.20:57483/users");
 
-            User newUser = new User();
+            UserOld newUser = new UserOld();
             newUser.Username = username;
             newUser.Firstname = firstName;
             newUser.Lastname = lastName;
@@ -222,7 +287,7 @@ namespace ApplikasjonBoknaden
             var client = new HttpClient();
             client.BaseAddress = new Uri("http://146.185.164.20:57483/users");
 
-            User newUser = new User();
+            UserOld newUser = new UserOld();
             newUser.Username = username;
             newUser.Firstname = firstName;
             newUser.Lastname = lastName;
@@ -263,16 +328,121 @@ namespace ApplikasjonBoknaden
         public string courseid { get; set; }
     }
 
-    public class NewBook
-    {
-        public string userid = "";
-        public string universityid = "";
-        public string courseid = "";
-        public string adname = "";
+  //  public class Ads
+  //  {
+  //      public List<Ad> Ad = new List<Ad>();
+   // }
 
-        public string text = "";
-        public string pinned = "";
-        public string deleted = "";
+   // public class Ad
+  //  {
+     //   public string userid = "";
+    //    public string universityid = null;
+     //   public string courseid = null;
+   //     public string adname { get; set; }
+
+    //    public string text = null;
+    //    public string pinned = null;
+       // public string deleted = 0;
+
+  //      public List<AdItem> aditems = new List<AdItem>();
+
+   // }
+
+   // public class AdItem
+  //  {
+
+
+       // public string userid = "";
+     //   public string adid = null;
+      //  public string imageid = null;
+
+        //  public string universityid = "";
+        // public string courseid = "";
+        //public string adname = "";
+       // public string price = null;
+     //   public string text = null;
+      //  public string description = null;
+      //  public string isbn = null;
+        //public string deleted = "0";
+
+
+        // public string text = "";
+        // public string pinned = "";
+        // public string deleted = "";
+        //   userid: { type: Sequelize.INTEGER, allowNull: false },
+        // adid: { type: Sequelize.INTEGER, allowNull: false },
+        // imageid: { type: Sequelize.INTEGER, allowNull: true },
+        //  price: { type: Sequelize.FLOAT, allowNull: false },
+        // text: { type: Sequelize.TEXT, allowNull: false },
+        // description: { type: Sequelize.TEXT, allowNull: true },
+        // isbn: { type: Sequelize.STRING(13), allowNull: true },
+        // deleted: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false }
+  //  }
+
+    public class User
+    {
+        public string username { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+    }
+
+    public class Aditem
+    {
+        public int aditemid { get; set; }
+        public int userid { get; set; }
+        public int adid { get; set; }
+        public object imageid { get; set; }
+        public int price { get; set; }
+        public string text { get; set; }
+        public string description { get; set; }
+        public string isbn { get; set; }
+        public int deleted { get; set; }
+        public string createddate { get; set; }
+        public string updateddate { get; set; }
+        public object image { get; set; }
+    }
+
+    public class University
+    {
+        public int universityid { get; set; }
+        public string universityname { get; set; }
+        public double longitude { get; set; }
+        public double latitude { get; set; }
+        public int deleted { get; set; }
+        public string createddate { get; set; }
+        public string updateddate { get; set; }
+    }
+
+    public class Course
+    {
+        public int courseid { get; set; }
+        public string coursename { get; set; }
+        public University university { get; set; }
+    }
+
+    public class Ad
+    {
+        public int adid { get; set; }
+        public int userid { get; set; }
+        public int universityid { get; set; }
+        public int courseid { get; set; }
+        public string adname { get; set; }
+        public string text { get; set; }
+        public object pinned { get; set; }
+        public int deleted { get; set; }
+        public string createddate { get; set; }
+        public string updateddate { get; set; }
+        public User user { get; set; }
+        public List<Aditem> aditems { get; set; }
+        public Course course { get; set; }
+    }
+
+    public class RootObject
+    {
+        public int limit { get; set; }
+        public int offset { get; set; }
+        public int count { get; set; }
+        public List<Ad> ads { get; set; }
     }
 }
 

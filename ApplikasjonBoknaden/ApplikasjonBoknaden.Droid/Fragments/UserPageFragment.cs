@@ -13,7 +13,8 @@ using Android.Support.V4.View;
 using ApplikasjonBoknaden.Droid.ViewPageExpanders.ApplikasjonBoknaden.Droid.ViewPageExpanders;
 using ApplikasjonBoknaden.Droid.ViewPageExpanders;
 using ApplikasjonBoknaden.Droid.DialogFragments;
-
+using ApplikasjonBoknaden.JsonHelpers;
+using RestSharp;
 
 namespace ApplikasjonBoknaden.Droid
 {
@@ -21,6 +22,9 @@ namespace ApplikasjonBoknaden.Droid
     [Activity(Label = "UserPageActivity")]
     public class UserPageActivity : CostumFragment
     {
+
+        private ISharedPreferences sP;
+        private ISharedPreferencesEditor sPEditor;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,11 +47,29 @@ namespace ApplikasjonBoknaden.Droid
 
         protected override void InitiateFragment()
         {
+            Button logOutButton = Fragmentview.FindViewById<Button>(Resource.Id.LogOutUserbutton);
+            logOutButton.Click += delegate {
+                LogOut();
+            };
 
+
+
+            sP = FragmentActivityCaller.GetSharedPreferences("SearchFilter", FileCreationMode.Private);
+            sPEditor = sP.Edit();
+            TextView usernameTextview = Fragmentview.FindViewById<TextView>(Resource.Id.UserNametextView);
+            usernameTextview.Text = SavedValues.UserValues.GetSavedFirstName(sP) + " " + SavedValues.UserValues.GetSavedLastName(sP);
             ViewPager viewPager = Fragmentview.FindViewById<ViewPager>(Resource.Id.viewpager);
             TreeCatalog treeCatalog = new TreeCatalog();
             viewPager.Adapter = new TreePagerAdapter(this.Context, treeCatalog);
 
+        }
+        /// <summary>
+        /// Saves a new empty user, and returns to LoginActivity.
+        /// </summary>
+        private void LogOut()
+        {
+            SavedValues.UserValues.SaveNewUserValues(new UserOld(), sPEditor);
+            FragmentActivityCaller.StartActivity(typeof(LoginActivity));
         }
 
    //     protected override void OnCreate(Bundle savedInstanceState)

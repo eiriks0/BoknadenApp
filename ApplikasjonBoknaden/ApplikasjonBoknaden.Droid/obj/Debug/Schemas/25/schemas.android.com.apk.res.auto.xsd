@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>28/03/2017 16:54:04</xs:documentation>
+    <xs:documentation>31/03/2017 11:24:41</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -151,6 +151,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -483,6 +484,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -639,6 +641,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -795,6 +798,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -1132,6 +1136,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -1652,6 +1662,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -2060,6 +2076,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -2468,6 +2490,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -2791,6 +2819,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -2947,6 +2976,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3103,6 +3133,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3259,6 +3290,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3415,6 +3447,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3571,6 +3604,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3727,6 +3761,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -3883,6 +3918,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -4039,6 +4075,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -4532,6 +4569,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -4940,6 +4983,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -5437,6 +5486,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -5760,6 +5815,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -6061,6 +6117,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -6469,6 +6531,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -6863,6 +6931,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -7019,6 +7088,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -7175,6 +7245,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -7331,6 +7402,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -7487,6 +7559,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -7728,6 +7801,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -8136,6 +8215,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -8607,6 +8692,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -9015,6 +9106,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -9519,6 +9616,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -10148,6 +10251,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -10635,6 +10744,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -11219,6 +11334,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -11803,6 +11924,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -12211,6 +12338,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -12708,6 +12841,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -13120,6 +13259,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -13276,6 +13416,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -13565,6 +13706,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -14062,6 +14209,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -14470,6 +14623,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -14793,6 +14952,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -15034,6 +15194,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -15755,6 +15921,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -16163,6 +16335,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -16760,6 +16938,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -17344,6 +17528,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -17841,6 +18031,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -18425,6 +18621,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -18748,6 +18950,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -18904,6 +19107,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -19145,6 +19349,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -19553,6 +19763,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -19876,6 +20092,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -20223,6 +20440,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -20379,6 +20597,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -20535,6 +20754,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -20706,6 +20926,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -20862,6 +21083,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -21018,6 +21240,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -21174,6 +21397,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -21330,6 +21554,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -21747,6 +21972,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -22246,6 +22477,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -22462,6 +22694,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -22618,6 +22851,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -22774,6 +23008,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -22930,6 +23165,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -23086,6 +23322,7 @@
             <xs:enumeration value="@dimen/abc_text_size_subtitle_material_toolbar" />
             <xs:enumeration value="@dimen/abc_text_size_title_material" />
             <xs:enumeration value="@dimen/abc_text_size_title_material_toolbar" />
+            <xs:enumeration value="@dimen/ad_height" />
             <xs:enumeration value="@dimen/cardview_compat_inset_shadow" />
             <xs:enumeration value="@dimen/cardview_default_elevation" />
             <xs:enumeration value="@dimen/cardview_default_radius" />
@@ -23327,6 +23564,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -23911,6 +24154,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -24319,6 +24568,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />
@@ -24775,6 +25030,12 @@
             <xs:enumeration value="@drawable/ic_tv_dark" />
             <xs:enumeration value="@drawable/ic_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/iconcamera" />
+            <xs:enumeration value="@drawable/iconchat" />
+            <xs:enumeration value="@drawable/iconhome" />
+            <xs:enumeration value="@drawable/iconmenuround" />
+            <xs:enumeration value="@drawable/iconprofile" />
+            <xs:enumeration value="@drawable/iconsettings" />
             <xs:enumeration value="@drawable/larch" />
             <xs:enumeration value="@drawable/maple" />
             <xs:enumeration value="@drawable/mr_dialog_material_background_dark" />

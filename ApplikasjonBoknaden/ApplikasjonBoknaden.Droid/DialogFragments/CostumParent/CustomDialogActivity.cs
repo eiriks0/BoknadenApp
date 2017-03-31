@@ -73,7 +73,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments.CostumParent
         /// <returns></returns>
         protected virtual int LayoutSetter()
         {
-            return Resource.Layout.RegisterNewUserFragmentLayout;
+            return Resource.Layout.DialogueFragmentRegisterUserLayout;
         }
 
         public override void OnResume()

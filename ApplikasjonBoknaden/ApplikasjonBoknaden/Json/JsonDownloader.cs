@@ -13,6 +13,30 @@ namespace ApplikasjonBoknaden
     public static class JsonDownloader
     {
 
+        public static async Task <Json.RootObject>  GetItemsFromDatabase()
+        {
+            try
+            {
+                Json.RootObject publicFeed = new Json.RootObject();
+
+                //List<Ads> ad = new List<Ads>();
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync("http://146.185.164.20:57483/ads");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                publicFeed = JsonConvert.DeserializeObject<Json.RootObject>(responseBody);
+                //Console.WriteLine(publicFeed.ads[0].adname + "Yay");
+                return publicFeed;
+            }
+            catch (Exception exception)
+            {
+                System.Diagnostics.Debug.WriteLine("CAUGHT EXCEPTION:");
+                System.Diagnostics.Debug.WriteLine(exception);
+                return null;
+            }
+        }
+
 
         public static async Task RegisterNewUser(string username, string firstName, string lastName, string password, string email)
         {

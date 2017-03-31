@@ -57,7 +57,7 @@ namespace ApplikasjonBoknaden.Droid.ViewPageExpanders
         {
             // Built-in tree catalog (could be replaced with a database)
             static TreePage[] treeBuiltInCatalog = {
-            new TreePage { imageId = Resource.Layout.RegisterNewUser,
+            new TreePage { imageId = Resource.Layout.DialogueFragmentRegisterUserLayout,
                            caption = "Solgte varer" },
             new TreePage { imageId = Resource.Drawable.maple,
                            caption = "Til salgs" },

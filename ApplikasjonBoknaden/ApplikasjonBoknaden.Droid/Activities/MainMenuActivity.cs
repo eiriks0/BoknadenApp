@@ -17,6 +17,9 @@ using System.Net.Http;
 using System.Timers;
 using Android.Support.V4.App;
 using ApplikasjonBoknaden.Droid.DialogFragments;
+using ApplikasjonBoknaden.Droid.Fragments;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace ApplikasjonBoknaden.Droid
 {
@@ -32,7 +35,7 @@ namespace ApplikasjonBoknaden.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.FragmentActivityLayout);
+            SetContentView(Resource.Layout.ActivityMainMenuLayout);
             // ge();
 
            // AddItems();
@@ -41,19 +44,28 @@ namespace ApplikasjonBoknaden.Droid
             FT = SupportFragmentManager.BeginTransaction();
 
             ChangeFragment(new ItemStoreFragment());
+            //Call
+            //AdNewAdd();
         }
+
+
+     
 
         private void ChangeFragment(CostumFragment fragment)
         {
-            fragment.SetFragmentActivityCaller(this);
-            FT = SupportFragmentManager.BeginTransaction();
+            if (fragment != NewestFragment)
+            {
+                fragment.SetFragmentActivityCaller(this);
+                FT = SupportFragmentManager.BeginTransaction();
 
-            FT.SetCustomAnimations(Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_top);
-            // UserPageFragment = new ItemStoreFragment();
-            FT.Replace(Resource.Id.FragmentHolderMainMenu, fragment, "details_fragment");
-            //  ft.SetTransition(Android.Support.V4.App.FragmentTransaction.TransitFragmentFade);
-            FT.Commit();
-            NewestFragment = fragment;
+                FT.SetCustomAnimations(Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_bottom);
+                // UserPageFragment = new ItemStoreFragment();
+                FT.Replace(Resource.Id.FragmentHolderMainMenu, fragment, "details_fragment");
+                //  ft.SetTransition(Android.Support.V4.App.FragmentTransaction.TransitFragmentFade);
+                FT.Commit();
+                NewestFragment = fragment;
+            }
+
         }
 
         /// <summary>
@@ -65,6 +77,12 @@ namespace ApplikasjonBoknaden.Droid
             itemStoreImageButton.Click += delegate {
                 ChangeFragment(new ItemStoreFragment());
                 Toast.MakeText(this, "Item", ToastLength.Long).Show();
+            };
+
+            Android.Widget.ImageButton chatPageImageButton = FindViewById<Android.Widget.ImageButton>(Resource.Id.ChatPageImageButton);
+            chatPageImageButton.Click += delegate {
+                ChangeFragment(new ChatPageFragment());
+                Toast.MakeText(this, "Chat", ToastLength.Long).Show();
             };
 
             Android.Widget.ImageButton UserPageImageButton = FindViewById<Android.Widget.ImageButton>(Resource.Id.UserPageImageButton);

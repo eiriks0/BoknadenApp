@@ -101,6 +101,11 @@ class MonoPackageManager_Resources {
 		"ApplikasjonBoknaden.Droid.dll",
 		"ApplikasjonBoknaden.dll",
 		"FormsViewGroup.dll",
+		"Microsoft.IdentityModel.Logging.dll",
+		"Microsoft.IdentityModel.Tokens.dll",
+		"Newtonsoft.Json.dll",
+		"RestSharp.dll",
+		"System.IdentityModel.Tokens.Jwt.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Design.dll",
 		"Xamarin.Android.Support.v4.dll",
@@ -116,7 +121,6 @@ class MonoPackageManager_Resources {
 		"ZXing.Net.Mobile.Core.dll",
 		"zxing.portable.dll",
 		"ZXingNetMobile.dll",
-		"Newtonsoft.Json.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

@@ -19,6 +19,10 @@ using System.Security.Claims;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Dynamic;
+using ApplikasjonBoknaden.JsonHelpers;
+using ApplikasjonBoknaden.Droid.AndroidJsonHelpers;
+using ApplikasjonBoknaden.Droid.SavedValues;
+using System.Net.Http;
 
 namespace ApplikasjonBoknaden.Droid
 {
@@ -27,22 +31,24 @@ namespace ApplikasjonBoknaden.Droid
     {
         private EditText LoginEditText;
         private EditText PasswordEditText;
-        private ISharedPreferences sP;
-        private ISharedPreferencesEditor sPEditor;
 
-        int testint = 0;
+        private UserOld User = new UserOld();
+        private string password = "";
+        private string Username = "";
+        private string Email = "";
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             ActionBar.Hide();
-            sP = GetSharedPreferences("SearchFilter", FileCreationMode.Private);
-            sPEditor = sP.Edit();
+           // sP = GetSharedPreferences("SearchFilter", FileCreationMode.Private);
+           // sPEditor = sP.Edit();
 
             
 
-            SetContentView(Resource.Layout.Login);
+            SetContentView(Resource.Layout.ActivityLoginLayout);
 
 
 
@@ -57,48 +63,52 @@ namespace ApplikasjonBoknaden.Droid
         //  await JsonDownloader.RegisterNewUser(WritenUsername, WrittenEmail, WritenFirstname, WritenLastname, WritenPassword);
         // }
 
+
+        private async void TryToLogIn(UserOld user)
+        {
+            HttpResponseMessage Response = await Json.JsonUploader.CheckLoginCredentials(user);
+
+            if (Response.IsSuccessStatusCode)
+            {
+                CheckIfUserShouldGetNewToken();
+                StartActivity(typeof(MainMenuActivity));
+                Toast.MakeText(this, "Success!", ToastLength.Long).Show();
+            }
+            else
+            {
+                Toast.MakeText(this, "Feil passord eller brukernavn!", ToastLength.Long).Show();
+            }
+        }
+
         private async void CheckIfUserShouldGetNewToken()
         {
             // if (SavedValues.UserValues.getStringPrefs("Header", sP))
             // {
-            JToken s = await JsonUploader.AutenticateUser();
+            JToken s = await Json.JsonUploader.AutenticateUser(User);
             SavedValues.UserValues.saveStringPrefs("Header", s.ToString(), sPEditor);
             System.Diagnostics.Debug.WriteLine(SavedValues.UserValues.getStringPrefs("Header", sP));
 
-
-            //  System.Diagnostics.Debug.WriteLine(id.);
-            //  var name = results.Name;
-            TestJwtSecurityTokenHandler(s.ToString());
+            SaveNewLogin(s.ToString());
+            //TestJwtSecurityTokenHandler(s.ToString());
             // }
         }
-        /// <summary>
-        /// Gets user values from given token.
-        /// </summary>
-        /// <param name="token"></param>
-        public void TestJwtSecurityTokenHandler(string token)
+
+        private void SaveNewLogin(string token)
         {
+            User.Firstname = AndroidJsonHelper.GetValueFromToken(token, AndroidJsonHelper.UserValuesEnums.firstname);
+            User.Lastname = AndroidJsonHelper.GetValueFromToken(token, AndroidJsonHelper.UserValuesEnums.lastname);
+            User.Email = AndroidJsonHelper.GetValueFromToken(token, AndroidJsonHelper.UserValuesEnums.email);
+            User.Username = AndroidJsonHelper.GetValueFromToken(token, AndroidJsonHelper.UserValuesEnums.username);
+            User.Password = password;
+            User.Token = token;
 
-            //removes the start of the token string
-            token = token.Substring(25);
-            //Removes the end of the token string
-            token = token.Remove(token.Length - 2);
-            var handler = new JwtSecurityTokenHandler();
-            //Reads the "cleansed" token
-            var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
-            //Gets the email from the token           
-            var UserEmail = jsonToken.Claims.First(claim => claim.Type == "email").Value;
-            //Gets the expiration from the token
-            var UserTokenExpiraton = jsonToken.Claims.First(claim => claim.Type == "exp").Value;
-            //Debug
-            Console.WriteLine(UserTokenExpiraton);
+            UserValues.SaveNewUserValues(User, sPEditor);
         }
-
-
 
         private void PopupRegisterPage()
         {
 
-            RegisterNewUserFragment s = new DialogFragments.RegisterNewUserFragment();
+            RegisterNewUserDialogueFragment s = new DialogFragments.RegisterNewUserDialogueFragment();
             s.Show(SupportFragmentManager, "dialog", this);
 
           //  Android.Support.V4.App.FragmentTransaction ft = SupportFragmentManager.BeginTransaction();
@@ -142,8 +152,19 @@ namespace ApplikasjonBoknaden.Droid
 
         private void Login()
         {
+            password = PasswordEditText.Text;
+            Username = LoginEditText.Text;
+            Email = LoginEditText.Text;
+            User.Username = Username;
+            User.Password = password;
+            User.Email = Email;
+
+    
+            TryToLogIn(User);
+
+
            // CheckIfUserShouldGetNewToken();
-            StartActivity(typeof(MainMenuActivity));
+           // StartActivity(typeof(MainMenuActivity));
         }
 
 

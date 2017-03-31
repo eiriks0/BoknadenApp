@@ -63,7 +63,7 @@ namespace ApplikasjonBoknaden.Droid.ViewPageExpanders
         {
             if (position == 2)
             {
-                View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.RegisterNewUserFragmentLayout, container, false);
+                View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.DialogueFragmentRegisterUserLayout, container, false);
                 container.AddView(view);
                 ImageView userPageImage = view.FindViewById<ImageView>(Resource.Id.UserPageImageButton);
 

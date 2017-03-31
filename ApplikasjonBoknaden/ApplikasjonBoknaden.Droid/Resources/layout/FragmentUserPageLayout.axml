@@ -35,7 +35,7 @@
                     <TextView
                         android:text="User name"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:id="@+id/textView1"
+                        android:id="@+id/UserNametextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -43,7 +43,7 @@
                     <TextView
                         android:text="User Location"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:id="@+id/textView2"
+                        android:id="@+id/UserLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -53,7 +53,8 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
                 <android.support.v4.view.PagerTabStrip
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,8 +65,20 @@
                     android:textColor="#fff"
                     android:id="@+id/pagerTabStrip1" />
             </android.support.v4.view.ViewPager>
+            <Button
+                android:text="Log ut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LogOutUserbutton"
+                android:background="@layout/Purple_Button"
+                style="@style/button_text" />
         </LinearLayout>
     </FrameLayout>
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
     <android.support.v7.widget.CardView xmlns:p7="http://schemas.android.com/apk/res-auto"
         android:minWidth="25px"
         android:minHeight="25px"

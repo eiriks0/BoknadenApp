@@ -104,6 +104,7 @@ class MonoPackageManager_Resources {
 		"Microsoft.IdentityModel.Logging.dll",
 		"Microsoft.IdentityModel.Tokens.dll",
 		"Newtonsoft.Json.dll",
+		"RestSharp.dll",
 		"System.IdentityModel.Tokens.Jwt.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Design.dll",

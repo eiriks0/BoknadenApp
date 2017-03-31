@@ -58,7 +58,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
         protected virtual int Layout()
         {
-            return Resource.Layout.RegisterNewUserFragmentLayout;
+            return Resource.Layout.DialogueFragmentRegisterUserLayout;
         }
 
 

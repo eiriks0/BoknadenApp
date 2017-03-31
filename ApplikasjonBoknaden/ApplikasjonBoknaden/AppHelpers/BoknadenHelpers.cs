@@ -11,6 +11,20 @@ namespace ApplikasjonBoknaden
     {
         public static string[] NotAcceptecUsernames = new string[] { "Fuck", "fuck", "Faen", "faen", "Helvete", "helvete", "Fitte", "fitte", "Satan", "satan", "Hitler", "hitler", "Hore", "hore" };
 
+
+        public static string CleansedToken(string token, int removefront, int removeback)
+        {
+            //removes the start of the token string
+            token = token.Substring(removefront);
+            //Removes the end of the token string
+            if (removeback != 0)
+            {
+                token = token.Remove(token.Length - removeback);
+            }
+
+            return token;
+        }
+
         //  public static string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
 
         /// <summary>
