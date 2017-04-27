@@ -35,6 +35,7 @@ namespace ApplikasjonBoknaden.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            ActionBar.Hide();
             SetContentView(Resource.Layout.ActivityMainMenuLayout);
             // ge();
 

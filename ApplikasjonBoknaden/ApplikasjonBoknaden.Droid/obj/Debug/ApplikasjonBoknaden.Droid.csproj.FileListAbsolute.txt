@@ -127,5 +127,11 @@ C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBokn
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\layout\adminiaturelayout.xml
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\bin\Debug\ApplikasjonBoknaden.Droid.dll.config
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\values\dimens.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\layout\white_button.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\layout\blue_button.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\values\colors.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\layout\background_blue.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\drawable\logo.png
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\res\drawable\logohvit.png
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Debug\ApplikasjonBoknaden.Droid.dll.mdb
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\bin\Debug\ApplikasjonBoknaden.Droid.dll.mdb

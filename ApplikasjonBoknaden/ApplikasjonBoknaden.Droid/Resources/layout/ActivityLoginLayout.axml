@@ -3,24 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pexelsphoto">
-    <LinearLayout
-        android:orientation="horizontal"
+    android:screenOrientation="landscape"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:background="@layout/Background_Blue">
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="130.0dp"
-        android:gravity="center"
-        android:id="@+id/linearLayout2"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:background="#97004D"
-        android:layout_weight="1">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:id="@+id/imageView1"
-            android:src="@drawable/boknadenburgunder" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/space7" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
@@ -44,8 +33,26 @@
                 android:id="@+id/linearLayout1"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_gravity="top">
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/space9" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="80.0dp"
+                    android:id="@+id/space8" />
+                <ImageView
+                    android:scaleType="fitCenter"
+                    android:id="@+id/imageView1"
+                    android:src="@drawable/logohvit"
+                    android:layout_width="match_parent"
+                    android:layout_height="30.0dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="45.0dp"
+                    android:id="@+id/space6" />
                 <android.support.v7.widget.CardView xmlns:p7="http://schemas.android.com/apk/res-auto"
                     android:minWidth="25px"
                     android:minHeight="25px"
@@ -54,7 +61,7 @@
                     android:id="@+id/cardView1"
                     android:background="#ffff"
                     p7:cardCornerRadius="@dimen/abc_action_bar_content_inset_material"
-                    p7:cardBackgroundColor="#ff97004d">
+                    p7:cardBackgroundColor="@color/white">
                     <LinearLayout
                         android:orientation="horizontal"
                         android:minWidth="25px"
@@ -91,7 +98,7 @@
                     android:layout_width="350.5dp"
                     android:layout_height="64.0dp"
                     p7:cardCornerRadius="@dimen/abc_action_bar_content_inset_material"
-                    p7:cardBackgroundColor="#ff97004d">
+                    p7:cardBackgroundColor="@color/white">
                     <LinearLayout
                         android:orientation="horizontal"
                         android:minWidth="25px"
@@ -125,35 +132,40 @@
                 <Button
                     android:text="Logg inn"
                     android:id="@+id/Button_Login"
-                    android:background="@layout/Purple_Button"
+                    android:background="@layout/Blue_Button"
                     android:layout_width="230.0dp"
                     android:layout_height="wrap_content"
                     style="@style/button_text" />
+                <LinearLayout
+                    android:background="@color/transparent"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="130.0dp"
+                    android:id="@+id/linearLayout3"
+                    android:minWidth="25px"
+                    android:gravity="center"
+                    android:minHeight="25px"
+                    android:layout_weight="1">
+                    <TextView
+                        android:text="Ny her?"
+                        android:id="@+id/textView1"
+                        android:textSize="@dimen/abc_action_bar_content_inset_material"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <Space
+                        android:layout_width="4.5dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/space2" />
+                    <Button
+                        android:text="Registrer!"
+                        android:id="@+id/Button_NewUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34.0dp"
+                        android:background="@color/transparent"
+                        style="@style/button_text" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
-    <LinearLayout
-        android:background="@layout/Purple_Button"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="130.0dp"
-        android:id="@+id/linearLayout3"
-        android:minWidth="25px"
-        android:gravity="center"
-        android:minHeight="25px"
-        android:layout_weight="1">
-        <TextView
-            android:text="Ny her?"
-            android:id="@+id/textView1"
-            android:textSize="@dimen/abc_action_bar_content_inset_material"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-        <Button
-            android:text="Klikk meg!"
-            android:id="@+id/Button_NewUser"
-            android:layout_width="wrap_content"
-            android:layout_height="34.0dp"
-            android:background="#d60670" />
     </LinearLayout>
 </LinearLayout>

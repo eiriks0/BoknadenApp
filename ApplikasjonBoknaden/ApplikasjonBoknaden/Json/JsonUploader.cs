@@ -65,6 +65,48 @@ namespace ApplikasjonBoknaden.Json
             }
         }
 
+        public static async Task<HttpResponseMessage> UploadNewAd(Json.Ad ad)
+        {
+            ad.courseid = 1;
+            //ad.universityid = 1;
+            //  newuser.username = "Nils3";
+            //  newuser.passphrase = "12435";
+            //   newuser.email = "Kret3@gmail.com";
+            //    newuser.firstname = "Vogt3";
+            //   newuser.lastname = "Person3";
+            //   newuser.phone = "47665326";
+            //    newuser.courseid = "1";
+
+
+
+            string jsonData = JsonConvert.SerializeObject(ad);
+            // var client = new HttpClient();
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(AdURL);
+
+
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(AdURL, content);
+                    return response;
+
+                    // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+                    var result = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine(result);
+                }
+            }
+            catch (Exception exception)
+            {
+                System.Diagnostics.Debug.WriteLine("Nay");
+                System.Diagnostics.Debug.WriteLine("CAUGHT EXCEPTION:");
+                System.Diagnostics.Debug.WriteLine(exception);
+                return null;
+            }
+        }
+
         public static async Task<string> AutenticateUser(UserOld user)
         {
             UserCredentialsUsername ucu = new UserCredentialsUsername();
@@ -395,8 +437,10 @@ namespace ApplikasjonBoknaden.Json
         public int price { get; set; }
         public string text { get; set; }
         public string description { get; set; }
-        public string isbn { get; set; }
+        public object isbn { get; set; }
         public int deleted { get; set; }
+        public int active { get; set; }
+        public object buyerid { get; set; }
         public string createddate { get; set; }
         public string updateddate { get; set; }
         public object image { get; set; }
@@ -413,18 +457,35 @@ namespace ApplikasjonBoknaden.Json
         public string updateddate { get; set; }
     }
 
+    public class Campus
+    {
+        public int campusid { get; set; }
+        public string campusname { get; set; }
+        public int universityid { get; set; }
+        public int deleted { get; set; }
+        public string createddate { get; set; }
+        public string updateddate { get; set; }
+        public University university { get; set; }
+    }
+
     public class Course
     {
         public int courseid { get; set; }
         public string coursename { get; set; }
-        public University university { get; set; }
+        public int campusid { get; set; }
+        public int deleted { get; set; }
+        public string createddate { get; set; }
+        public string updateddate { get; set; }
+        public Campus campus { get; set; }
     }
 
+    /// <summary>
+    ///  values with ? behind them can be null.
+    /// </summary>
     public class Ad
     {
         public int adid { get; set; }
         public int userid { get; set; }
-        public int universityid { get; set; }
         public int courseid { get; set; }
         public string adname { get; set; }
         public string text { get; set; }
@@ -432,6 +493,8 @@ namespace ApplikasjonBoknaden.Json
         public int deleted { get; set; }
         public string createddate { get; set; }
         public string updateddate { get; set; }
+        public object universityid { get; set; }
+        public object campusid { get; set; }
         public User user { get; set; }
         public List<Aditem> aditems { get; set; }
         public Course course { get; set; }

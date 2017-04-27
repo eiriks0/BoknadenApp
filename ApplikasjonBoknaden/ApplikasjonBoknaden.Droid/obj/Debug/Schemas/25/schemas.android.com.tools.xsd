@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>31/03/2017 11:24:41</xs:documentation>
+    <xs:documentation>26/04/2017 22:41:47</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -42,6 +42,8 @@
             <xs:enumeration value="@layout/addnewbookfirstfragmentlayout" />
             <xs:enumeration value="@layout/adlayout" />
             <xs:enumeration value="@layout/adminiaturelayout" />
+            <xs:enumeration value="@layout/background_blue" />
+            <xs:enumeration value="@layout/blue_button" />
             <xs:enumeration value="@layout/camera" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -81,6 +83,7 @@
             <xs:enumeration value="@layout/select_dialog_singlechoice_material" />
             <xs:enumeration value="@layout/spinner_textview" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
+            <xs:enumeration value="@layout/white_button" />
             <xs:enumeration value="@layout/zxingscanneractivitylayout" />
             <xs:enumeration value="@layout/zxingscannerfragmentlayout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
@@ -161,6 +164,8 @@
             <xs:enumeration value="@layout/addnewbookfirstfragmentlayout" />
             <xs:enumeration value="@layout/adlayout" />
             <xs:enumeration value="@layout/adminiaturelayout" />
+            <xs:enumeration value="@layout/background_blue" />
+            <xs:enumeration value="@layout/blue_button" />
             <xs:enumeration value="@layout/camera" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -200,6 +205,7 @@
             <xs:enumeration value="@layout/select_dialog_singlechoice_material" />
             <xs:enumeration value="@layout/spinner_textview" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
+            <xs:enumeration value="@layout/white_button" />
             <xs:enumeration value="@layout/zxingscanneractivitylayout" />
             <xs:enumeration value="@layout/zxingscannerfragmentlayout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
@@ -280,6 +286,8 @@
             <xs:enumeration value="@layout/addnewbookfirstfragmentlayout" />
             <xs:enumeration value="@layout/adlayout" />
             <xs:enumeration value="@layout/adminiaturelayout" />
+            <xs:enumeration value="@layout/background_blue" />
+            <xs:enumeration value="@layout/blue_button" />
             <xs:enumeration value="@layout/camera" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -319,6 +327,7 @@
             <xs:enumeration value="@layout/select_dialog_singlechoice_material" />
             <xs:enumeration value="@layout/spinner_textview" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
+            <xs:enumeration value="@layout/white_button" />
             <xs:enumeration value="@layout/zxingscanneractivitylayout" />
             <xs:enumeration value="@layout/zxingscannerfragmentlayout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
@@ -399,6 +408,8 @@
             <xs:enumeration value="@layout/addnewbookfirstfragmentlayout" />
             <xs:enumeration value="@layout/adlayout" />
             <xs:enumeration value="@layout/adminiaturelayout" />
+            <xs:enumeration value="@layout/background_blue" />
+            <xs:enumeration value="@layout/blue_button" />
             <xs:enumeration value="@layout/camera" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -438,6 +449,7 @@
             <xs:enumeration value="@layout/select_dialog_singlechoice_material" />
             <xs:enumeration value="@layout/spinner_textview" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
+            <xs:enumeration value="@layout/white_button" />
             <xs:enumeration value="@layout/zxingscanneractivitylayout" />
             <xs:enumeration value="@layout/zxingscannerfragmentlayout" />
             <xs:enumeration value="@android:layout/activity_list_item" />

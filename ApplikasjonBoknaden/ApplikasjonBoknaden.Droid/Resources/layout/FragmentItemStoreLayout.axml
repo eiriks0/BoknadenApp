@@ -13,7 +13,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/linearLayout1"
-            android:background="@layout/Purple_Button"
+            android:background="@layout/Blue_Button"
             style="@style/button_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

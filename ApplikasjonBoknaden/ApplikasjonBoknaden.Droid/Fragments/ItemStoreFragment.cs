@@ -19,6 +19,8 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
     public class ItemStoreFragment : CostumFragment
     {
         protected GridLayout AdDisplayer;
+        protected ProgressBar _ProgressBar;
+        
 
         protected override int Layout()
         {
@@ -62,13 +64,24 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             };
         }
 
+        private void AddLoadingSign()
+        {
+            _ProgressBar = new ProgressBar(Context);
+            _ProgressBar.LayoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent,RelativeLayout.LayoutParams.MatchParent);
+            AdDisplayer.AddView(_ProgressBar);
+        }
+
+
         private async void GetNewestAdsFromDatabase()
         {
+            AddLoadingSign();
             Json.RootObject root = await JsonDownloader.GetItemsFromDatabase();
             if (root != null)
             {
                 AddItems(root);
             }
+            _ProgressBar.Visibility = ViewStates.Gone;
+
         }
 
         private void AddItems(Json.RootObject root)

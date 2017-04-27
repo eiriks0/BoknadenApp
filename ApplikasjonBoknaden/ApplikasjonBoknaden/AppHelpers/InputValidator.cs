@@ -41,7 +41,7 @@ namespace ApplikasjonBoknaden
         }
 
         /// <summary>
-        /// Checks if given string is a valid Username
+        /// Checks if given string is a valid ISBN
         /// </summary>
         /// <param name="isbn"></param>
         /// <returns></returns>

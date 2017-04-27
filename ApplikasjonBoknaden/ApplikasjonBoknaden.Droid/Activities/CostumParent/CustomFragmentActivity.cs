@@ -46,15 +46,16 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             // Display in ImageView. We will resize the bitmap to fit the display.
             // Loading the full sized image will consume to much memory
             // and cause the application to crash.
+            takePictureFragment.setProductImage();
 
-            int height = Resources.DisplayMetrics.HeightPixels;
-            int width = takePictureFragment._imageView.Height;
-            App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
-            if (App.bitmap != null)
-            {
-                takePictureFragment._imageView.SetImageBitmap(App.bitmap);
-                App.bitmap = null;
-            }
+            //int height = Resources.DisplayMetrics.HeightPixels;
+           // int width = takePictureFragment._imageView.Height;
+           // App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
+           // if (App.bitmap != null)
+           // {
+           //     takePictureFragment._imageView.SetImageBitmap(App.bitmap);
+          //      App.bitmap = null;
+          //  }
 
             // Dispose of the Java side bitmap.
             GC.Collect();

@@ -18,6 +18,12 @@ using ZXing.Mobile;
 using Android.Graphics;
 using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 using RestSharp;
+using ApplikasjonBoknaden.Droid.AdItemClasses;
+using Android.Support.V4;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using ApplikasjonBoknaden.Json;
+using ApplikasjonBoknaden.Droid.Helpers;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
@@ -38,17 +44,37 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             ISBNDescriptionCard
         };
 
+        private Json.Ad _Ad = null;
+
+        private AdMiniature _SelectedAdminiature;
+        private Json.Aditem _SelectedProduct;
+        private List<Json.Aditem> _AdItems = new List<Json.Aditem>();
+
         protected ValidationResponse ValidationResponder = new ValidationResponse();
+        //Main card
+        private CardView AdsCard = null;
+        private EditText AdTitelText;
+        private EditText AdDescriptionText;
+        //ISBN-scanner card
         private CardView ISBNScanCard = null;
+        //ISbn description card
         private CardView ISBNDescriptionCard = null;
+        //Take picture card
         private CardView TakePictureCard = null;
+        public ImageView _imageView;
+        //Choose type of item card
         private CardView ChooseItemTypeCard = null;
+        //Last card
         private CardView LastCard = null;
+        private EditText ProductNameText;
+        private EditText ProductDescriptionText;
+        private EditText ProductPriceText;
+
+        private CardView PublishCard = null;
 
         private List<CardView> allCards = new List<CardView>();
 
-        public ImageView _imageView;
-        private EditText EditTextISBNNumber;
+        //private EditText EditTextISBNNumber;
         private Spinner SchoolSpinner;
         private Spinner ClassSpinner;
         private string[] schoolnamesarr1 = new string[] { "Uspesifisert", "Lunde", "Bø", "Horten" };
@@ -64,7 +90,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private Button NextStepButtonNew = null;
 
         private EditText ManualISBNInput = null;
-
+        private GridLayout AdDisplayer;
         private Json.Ad NewAd = new Json.Ad();
         //private List<AdItem>
 
@@ -79,8 +105,9 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             SetButtonValues();
             SetButtonValuesISBNScanCard();
             SetButtonValuesLastCard();
+            SetButtonValuesAdCard();
             AddAllCards();
-            GoToCard(ChooseItemTypeCard);
+            GoToCard(AdsCard);
 
             PopulateSpinner(SchoolSpinner, schoolnamesarr1);
             PopulateSpinner(ClassSpinner, ClassNamesarr);
@@ -88,12 +115,15 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
         private void AddAllCards()
         {
+            allCards.Add(AdsCard);
             allCards.Add(ChooseItemTypeCard);
             allCards.Add(TakePictureCard);
             allCards.Add(ISBNScanCard);
             allCards.Add(ISBNDescriptionCard);
             allCards.Add(LastCard);
+            allCards.Add(PublishCard);
         }
+
 
         /// <summary>
         /// Finds and sets the values on this activities buttons and other views
@@ -101,11 +131,18 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         protected void SetButtonValues()
         {
             //Gets the cards
+            AdsCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewAds);
             TakePictureCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewPicture);
             ChooseItemTypeCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewItemType);
             ISBNScanCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewScanner);
             ISBNDescriptionCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewISBNDescription);
             LastCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewLast);
+            PublishCard = Dialogueview.FindViewById<CardView>(Resource.Id.cardViewPublish);
+
+            //LastCard
+            ProductNameText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductNameText);
+            ProductDescriptionText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductDescriptionText);
+            ProductPriceText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductPriceText);
 
             PrevStepImage = Dialogueview.FindViewById<ImageView>(Resource.Id.PrevStepImage);
             PrevStepImage.Touch += (object sender, View.TouchEventArgs e) =>
@@ -128,8 +165,10 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             Button setAsOtherButton = Dialogueview.FindViewById<Button>(Resource.Id.SetItemAsOtherButton);
             setAsOtherButton.Click += SetItemAsNewOther;
 
+            Button addNewProduktButton = Dialogueview.FindViewById<Button>(Resource.Id.NewProductButton);
+            addNewProduktButton.Click += AddNewProdukt;
             //Back to choose itemtype card image
-       
+
             //Next Step button
             //Book Image
             _imageView = Dialogueview.FindViewById<ImageView>(Resource.Id.imageView1);
@@ -155,6 +194,127 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
           //  EditTextISBNNumber.Text = PassedISBN;
           //  EditTextISBNNumber.Focusable = false;
           //  EditTextISBNNumber.SetBackgroundColor(Color.LightGreen);
+        }
+
+     
+
+        private void AddNewProdukt(object sender, EventArgs e)
+        {
+            _imageView.SetImageBitmap(null);
+      
+            ProductNameText.Text = "";
+            ProductDescriptionText.Text = "";
+
+            GoToCard(ChooseItemTypeCard);
+            Json.Aditem newProdukt = new Json.Aditem();
+            _Ad = new Json.Ad();
+            _Ad.aditems = new List<Json.Aditem>();
+            _Ad.aditems.Add(newProdukt);
+            _Ad.user = new Json.User();
+            _Ad.user.username = SavedValues.UserValues.GetSavedUsername(CallerActivity.sP);
+            _Ad.user.firstname = SavedValues.UserValues.GetSavedFirstName(CallerActivity.sP);
+            _Ad.user.lastname = SavedValues.UserValues.GetSavedLastName(CallerActivity.sP);
+           // _AdItems.Add(newProdukt);
+            SetProductInfo(newProdukt);
+            _SelectedProduct = newProdukt;
+            AdItemClasses.AdMiniature newAdminiature = new AdItemClasses.AdMiniature(Context, AdDisplayer, newProdukt, _Ad);
+            _SelectedAdminiature = newAdminiature;
+            _SelectedAdminiature.GetButton().Click += delegate {
+                ShowProduct(newProdukt, newAdminiature);
+            };
+
+
+            //  fillList(_Ad);
+        }
+
+        private void ShowProduct(Json.Aditem product, AdItemClasses.AdMiniature adminiature)
+        {
+            SetProductInfo(product);
+            _SelectedProduct = product;
+            _SelectedAdminiature = adminiature;
+            GoToCard(ChooseItemTypeCard);
+        }
+
+        private void SetProductInfo(Json.Aditem product)
+        {
+            ProductNameText.Text = product.text;
+            ProductDescriptionText.Text = product.description;
+            ProductPriceText.Text = product.price.ToString();
+            ManualISBNInput.Text = product.isbn.ToString();
+            int height = Resources.DisplayMetrics.HeightPixels;
+            int width = _imageView.Height;
+
+            if (product.image != null)
+            {
+                try
+                {
+                    Bitmap myBitmap = BitmapFactory.DecodeByteArray(ObjectToByteArray(product.image), height, width);
+                    _imageView.SetImageBitmap(myBitmap);
+                }
+                catch
+                {
+                    _imageView.SetImageBitmap(null);
+                }
+            }
+        }
+
+        private byte[] ObjectToByteArray(object obj)
+        {
+            if (obj == null)
+                return null;
+            BinaryFormatter bf = new BinaryFormatter();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bf.Serialize(ms, obj);
+                return ms.ToArray();
+            }
+        }
+
+        private void fillList(Json.Ad ad)
+        {
+            foreach (Json.Aditem a in _Ad.aditems)
+            {
+                AdItemClasses.AdMiniature AdPackDisplay1 = new AdItemClasses.AdMiniature(Context, AdDisplayer, a, ad);
+
+            }
+        }
+
+        public void setProductImage()
+        {
+            int height = Resources.DisplayMetrics.HeightPixels;
+            int width = _imageView.Height;
+            App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
+
+            if (App.bitmap != null)
+            {
+                _imageView.SetImageBitmap(App.bitmap);
+                _SelectedAdminiature.setImage(App.bitmap);
+                _SelectedProduct.image = App.bitmap;
+                App.bitmap = null;
+            }
+        }
+
+        private async void GetNewestAdsFromDatabase()
+        {
+            Json.RootObject root = await JsonDownloader.GetItemsFromDatabase();
+            if (root != null)
+            {
+                AddItems(root);
+            }
+
+        }
+
+        private void AddItems(Json.RootObject root)
+        {
+            foreach (Json.Ad a in root.ads)
+            {
+                AdItemClasses.AdMiniature AdPackDisplay1 = new AdItemClasses.AdMiniature(Context, AdDisplayer, a);
+            }
+        }
+
+        protected void SetButtonValuesAdCard()
+        {
+           AdDisplayer = Dialogueview.FindViewById<GridLayout>(Resource.Id.tableLayoutAdsCard);
         }
 
         private void PopulateSpinner(Spinner sp, string[] spinnerStrings)
@@ -197,6 +357,10 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             {
                 GoToCard(TakePictureCard);
             }
+            else if (GetCurrentActiveCard() == AdsCard)
+            {
+                GoToCard(PublishCard);
+            }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
                 if (NewitemType == ItemType.Book)
@@ -205,21 +369,34 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 }
                 else
                 {
-                  // GoToCard(ISBNScanCard);
+                    // GoToCard(ISBNScanCard);
                 }
 
             }
             else if (GetCurrentActiveCard() == ISBNScanCard)
             {
+                _SelectedProduct.isbn = ManualISBNInput.Text;
                 GoToNextStepOfAddBook(ManualISBNInput.Text);
                 //  GoToCard(TakePictureCard);
             }
             else if (GetCurrentActiveCard() == ISBNDescriptionCard)
             {
-            //    GoToCard(ISBNScanCard);
-            } else if (GetCurrentActiveCard() == LastCard)
+                //    GoToCard(ISBNScanCard);
+            }
+            else if (GetCurrentActiveCard() == LastCard)
             {
-                UploadNewBook();
+                _SelectedProduct.text = ProductNameText.Text;
+                _SelectedProduct.description = ProductDescriptionText.Text;
+                _SelectedProduct.price = Int32.Parse(ProductPriceText.Text);
+                _SelectedAdminiature.SetValues(_SelectedProduct);
+                GoToCard(AdsCard);
+                // _SelectedProduct.
+                //UploadNewBook();
+            }
+            else if (GetCurrentActiveCard() == PublishCard)
+            {
+               Publish(_Ad);
+                Console.WriteLine("Publishes");
             }
         }
 
@@ -227,8 +404,13 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         {
             if (GetCurrentActiveCard() == ChooseItemTypeCard)
             {
+                GoToCard(AdsCard);
+            }
+            else if (GetCurrentActiveCard() == AdsCard)
+            {
                 CloseFragment();
-            } else if (GetCurrentActiveCard() == TakePictureCard)
+            }
+            else if (GetCurrentActiveCard() == TakePictureCard)
             {
                 GoToCard(ChooseItemTypeCard);
             } else if (GetCurrentActiveCard() == ISBNScanCard)
@@ -248,6 +430,9 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 {
                     // GoToCard(ISBNScanCard);
                 }
+            }else if (GetCurrentActiveCard() == PublishCard)
+            {
+                GoToCard(AdsCard);
             }
         }
 
@@ -329,22 +514,45 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
             if (GetCurrentActiveCard() == ChooseItemTypeCard)
             {
-                NextStepButtonNew.Visibility = ViewStates.Gone;
+                NextStepButtonNew.Visibility = ViewStates.Visible;
+                NextStepButtonNew.Text = "Slett produkt";
             }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
                 NextStepButtonNew.Visibility = ViewStates.Visible;
+                NextStepButtonNew.Text = "Neste";
             }
             else if (GetCurrentActiveCard() == ISBNScanCard)
             {
                 NextStepButtonNew.Visibility = ViewStates.Visible;
+                NextStepButtonNew.Text = "Neste";
             }
             else if (GetCurrentActiveCard() == ISBNDescriptionCard)
             {
                 NextStepButtonNew.Visibility = ViewStates.Gone;
+
+            } else if (GetCurrentActiveCard() == AdsCard)
+            {
+                NextStepButtonNew.Text = "Publiser";
+               // GetNewestAdsFromDatabase();
+                NextStepButtonNew.Visibility = ViewStates.Visible;
+            }
+            else if (GetCurrentActiveCard() == PublishCard)
+            {
+                NextStepButtonNew.Text = "Publiser";
+                // GetNewestAdsFromDatabase();
+                NextStepButtonNew.Visibility = ViewStates.Visible;
             }
 
+
             ShowToast("New card");
+        }
+
+        private async void Publish(Ad ad)
+        {
+            RestSharpHelper r = new RestSharpHelper();
+            r.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP));
+           // await JsonUploader.UploadNewAd(ad);
         }
 
 

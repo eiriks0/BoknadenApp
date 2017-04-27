@@ -58,6 +58,10 @@ ApplikasjonBoknaden.Droid.AdItemClasses.AdMiniature, ApplikasjonBoknaden.Droid;m
 ApplikasjonBoknaden.Droid.AdItemClasses.AdMiniature, ApplikasjonBoknaden.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5d949854c281edd07d2b1de5d72453536.AdMiniature
 ApplikasjonBoknaden.Droid.AdItemClasses.AdMiniature;md5d949854c281edd07d2b1de5d72453536.AdMiniature
 applikasjonboknaden.droid.aditemclasses.AdMiniature;md5d949854c281edd07d2b1de5d72453536.AdMiniature
+ApplikasjonBoknaden.Droid.AdItemClasses.ProductMiniature, ApplikasjonBoknaden.Droid;md5d949854c281edd07d2b1de5d72453536.ProductMiniature
+ApplikasjonBoknaden.Droid.AdItemClasses.ProductMiniature, ApplikasjonBoknaden.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5d949854c281edd07d2b1de5d72453536.ProductMiniature
+ApplikasjonBoknaden.Droid.AdItemClasses.ProductMiniature;md5d949854c281edd07d2b1de5d72453536.ProductMiniature
+applikasjonboknaden.droid.aditemclasses.ProductMiniature;md5d949854c281edd07d2b1de5d72453536.ProductMiniature
 Android.Support.Design.Widget.Snackbar/SnackbarActionClickImplementor, Xamarin.Android.Support.Design;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar+SnackbarActionClickImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar.SnackbarActionClickImplementor;android.support.design.widget.Snackbar_SnackbarActionClickImplementor

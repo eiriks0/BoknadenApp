@@ -24,7 +24,7 @@
                 android:id="@+id/linearLayout5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@layout/Purple_Button">
+                android:background="@layout/Blue_Button">
                 <LinearLayout
                     android:orientation="vertical"
                     android:minWidth="25px"
