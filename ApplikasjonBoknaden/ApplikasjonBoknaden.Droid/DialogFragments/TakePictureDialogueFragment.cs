@@ -48,6 +48,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private Json.Ad _Ad = null;
 
         private AdMiniature _SelectedAdminiature;
+        private List<AdMiniature> _AllAdMiniatures = new List<AdMiniature>();
         private Json.Aditem _SelectedProduct;
         private List<Json.Aditem> _AdItems = new List<Json.Aditem>();
 
@@ -93,7 +94,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private Button NextStepButtonNew = null;
 
         private EditText ManualISBNInput = null;
-        private GridLayout AdDisplayer;
+        private LinearLayout AdDisplayer;
         private Json.Ad NewAd = new Json.Ad();
         private Bitmap CurrentProductImage;
         //private List<AdItem>
@@ -107,6 +108,12 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         protected override void InitiateFragment()
         {
             _Ad = new Json.Ad();
+            _Ad.aditems = new List<Json.Aditem>();
+            _Ad.user = new Json.User();
+            _Ad.user.username = SavedValues.UserValues.GetSavedUsername(CallerActivity.sP);
+            _Ad.user.firstname = SavedValues.UserValues.GetSavedFirstName(CallerActivity.sP);
+            _Ad.user.lastname = SavedValues.UserValues.GetSavedLastName(CallerActivity.sP);
+
             SetButtonValues();
             SetButtonValuesISBNScanCard();
             SetButtonValuesLastCard();
@@ -165,12 +172,25 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 }
             };
             NextStepButtonNew = Dialogueview.FindViewById<Button>(Resource.Id.NextStepButtonNew);
-            NextStepButtonNew.Click += NextStepButtonAction;
+            NextStepButtonNew.Click += delegate {
+                NextStepButtonAction();
+            };
             //Itemtype choice card
             Button setAsBookButton = Dialogueview.FindViewById<Button>(Resource.Id.SetItemAsBookButton);
-            setAsBookButton.Click += SetItemAsNewBook;
+            // setAsBookButton.Click += SetItemAsNewBook;
+     
+            setAsBookButton.Click += delegate {
+                NewitemType = ItemType.Book;
+                NextStepButtonAction();
+            };
+
+
             Button setAsOtherButton = Dialogueview.FindViewById<Button>(Resource.Id.SetItemAsOtherButton);
-            setAsOtherButton.Click += SetItemAsNewOther;
+
+            setAsOtherButton.Click += delegate {
+                NewitemType = ItemType.Other;
+                NextStepButtonAction();
+            };
 
             Button addNewProduktButton = Dialogueview.FindViewById<Button>(Resource.Id.NewProductButton);
             addNewProduktButton.Click += AddNewProdukt;
@@ -203,6 +223,46 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
           //  EditTextISBNNumber.SetBackgroundColor(Color.LightGreen);
         }
 
+        private void DeleteAdItem(Aditem item, AdMiniature adMiniature)
+        {
+            if (adMiniature == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Den er null...");
+
+            }else
+            {
+                System.Diagnostics.Debug.WriteLine("Den er ikke null");
+            }
+
+            for (int i = 0; i < AdDisplayer.ChildCount; i++)
+            {
+                if (_AllAdMiniatures[i] == adMiniature)
+                {
+                    _AllAdMiniatures.Remove(_AllAdMiniatures[i]);
+                    System.Diagnostics.Debug.WriteLine("Fjerner 1");
+                    AdDisplayer.RemoveView(AdDisplayer.GetChildAt(i));
+                }
+            } 
+        
+
+        adMiniature.RemoveAllViews();
+            _SelectedAdminiature = adMiniature;
+            AdDisplayer.RemoveView(adMiniature.RootView);
+            // AdDisplayer.RemoveAllViewsInLayout();
+           // AdDisplayer.RemoveAllViews();
+
+            foreach (Aditem a in _Ad.aditems)
+            {
+                if (item == a)
+                {
+                    _Ad.aditems.Remove(a);
+                    return;
+                }
+            }
+
+         
+        }
+
      
 
         private void AddNewProdukt(object sender, EventArgs e)
@@ -216,17 +276,20 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             GoToCard(ChooseItemTypeCard);
             Json.Aditem newProdukt = new Json.Aditem();
        
-            _Ad.aditems = new List<Json.Aditem>();
+            
             _Ad.aditems.Add(newProdukt);
-            _Ad.user = new Json.User();
-            _Ad.user.username = SavedValues.UserValues.GetSavedUsername(CallerActivity.sP);
-            _Ad.user.firstname = SavedValues.UserValues.GetSavedFirstName(CallerActivity.sP);
-            _Ad.user.lastname = SavedValues.UserValues.GetSavedLastName(CallerActivity.sP);
+            
            // _AdItems.Add(newProdukt);
            // SetProductInfo(newProdukt);
             _SelectedProduct = newProdukt;
             AdItemClasses.AdMiniature newAdminiature = new AdItemClasses.AdMiniature(Context, AdDisplayer, newProdukt, _Ad);
+            _AllAdMiniatures.Add(newAdminiature);
             _SelectedAdminiature = newAdminiature;
+            _SelectedAdminiature.InitiateShowInterestButton("Slett", true);
+            _SelectedAdminiature.GetShowInterestButton().Click += delegate {
+                DeleteAdItem(newProdukt, newAdminiature);
+                _SelectedAdminiature.RemoveFromParent();
+            };
             _SelectedAdminiature.GetButton().Click += delegate {
                 ShowProduct(newProdukt, newAdminiature);
             };
@@ -332,7 +395,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
         protected void SetButtonValuesAdCard()
         {
-           AdDisplayer = Dialogueview.FindViewById<GridLayout>(Resource.Id.tableLayoutAdsCard);
+           AdDisplayer = Dialogueview.FindViewById<LinearLayout>(Resource.Id.AdDisplayer);
         }
 
         private void PopulateSpinner(Spinner sp, string[] spinnerStrings)
@@ -368,12 +431,22 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             return null;
         }
 
-        private void NextStepButtonAction(object sender, EventArgs e)
+        private void NextStepButtonAction()
         {
 
             if (GetCurrentActiveCard() == ChooseItemTypeCard)
             {
-                GoToCard(TakePictureCard);
+                if (NewitemType == ItemType.Book)
+                {
+                    GoToCard(ISBNScanCard);
+                }
+                else
+                {
+                    //GoToCard(LastCard);
+                    GoToCard(TakePictureCard);
+                }
+
+            
             }
             else if (GetCurrentActiveCard() == AdsCard)
             {
@@ -400,14 +473,16 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                     return;
                 }
 
-                if (NewitemType == ItemType.Book)
-                {
-                    GoToCard(ISBNScanCard);
-                }
-                else
-                {
-                    GoToCard(LastCard);
-                }
+                GoToCard(LastCard);
+
+              //  if (NewitemType == ItemType.Book)
+              //  {
+              //      GoToCard(ISBNScanCard);
+             //   }
+             //   else
+             //   {
+              //      GoToCard(LastCard);
+              //  }
 
             }
             else if (GetCurrentActiveCard() == ISBNScanCard)
@@ -481,24 +556,25 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
-                GoToCard(ChooseItemTypeCard);
-            } else if (GetCurrentActiveCard() == ISBNScanCard)
-            {
-                GoToCard(TakePictureCard);
-            } else if (GetCurrentActiveCard() == ISBNDescriptionCard)
-            {
-                GoToCard(ISBNScanCard);
-            }
-            else if (GetCurrentActiveCard() == LastCard)
-            {
                 if (NewitemType == ItemType.Book)
                 {
                     GoToCard(ISBNScanCard);
                 }
                 else
                 {
-                    // GoToCard(ISBNScanCard);
+                    GoToCard(ChooseItemTypeCard);
                 }
+            } else if (GetCurrentActiveCard() == ISBNScanCard)
+            {
+                GoToCard(ChooseItemTypeCard);
+            } else if (GetCurrentActiveCard() == ISBNDescriptionCard)
+            {
+                GoToCard(ISBNScanCard);
+            }
+            else if (GetCurrentActiveCard() == LastCard)
+            {
+              GoToCard(TakePictureCard);
+
             }else if (GetCurrentActiveCard() == PublishCard)
             {
                 GoToCard(AdsCard);
@@ -583,8 +659,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
             if (GetCurrentActiveCard() == ChooseItemTypeCard)
             {
-                NextStepButtonNew.Visibility = ViewStates.Visible;
-                NextStepButtonNew.Text = "Slett produkt";
+                NextStepButtonNew.Visibility = ViewStates.Gone;
             }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
@@ -612,9 +687,6 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 // GetNewestAdsFromDatabase();
                 NextStepButtonNew.Visibility = ViewStates.Visible;
             }
-
-
-            ShowToast("New card");
         }
 
         private void Publish(Ad ad)
@@ -633,19 +705,6 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             RestSharpHelper r = new RestSharpHelper();
             r.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP), ad);
             // await JsonUploader.UploadNewAd(ad);
-        }
-
-
-        private void SetItemAsNewBook(object sender, EventArgs eventArgs)
-        {
-            NewitemType = ItemType.Book;
-            GoToCard(TakePictureCard);
-        }
-
-        private void SetItemAsNewOther(object sender, EventArgs eventArgs)
-        {
-            NewitemType = ItemType.Other;
-            GoToCard(TakePictureCard);
         }
 
         private void BackToScannerFromDescription(object sender, EventArgs e)
@@ -747,19 +806,5 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             //CloseFragment();
             //  await JsonDownloader.RegisterNewUser(WritenUsername, WrittenEmail, WritenFirstname, WritenLastname, WritenPassword);
         }
-    }
-
-
-
-    public class NewBook
-    {
-        string userid = "";
-        string universityid = "";
-        string courseid = "";
-        string adname = "";
-
-        string text = "";
-        string pinned = "";
-        string deleted = "";
     }
 }

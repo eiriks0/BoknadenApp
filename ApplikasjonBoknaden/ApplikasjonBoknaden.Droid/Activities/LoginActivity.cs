@@ -23,10 +23,11 @@ using ApplikasjonBoknaden.JsonHelpers;
 using ApplikasjonBoknaden.Droid.AndroidJsonHelpers;
 using ApplikasjonBoknaden.Droid.SavedValues;
 using System.Net.Http;
+using Android.Content.PM;
 
 namespace ApplikasjonBoknaden.Droid
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "LoginActivity", ScreenOrientation = ScreenOrientation.Portrait)]
     public class LoginActivity : CustomFragmentActivity
     {
         private EditText LoginEditText;

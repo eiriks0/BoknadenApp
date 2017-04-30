@@ -36,6 +36,10 @@ namespace ApplikasjonBoknaden.Droid.ViewPageExpanders
         {
             View view1 = LayoutInflater.From(container.Context).Inflate(Resource.Layout.AdItemLayout, container, false);
             container.AddView(view1);
+           // ViewGroup.LayoutParams p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent,
+           // ViewGroup.LayoutParams.WrapContent);
+          //  view1.LayoutParameters = p;
+
             return view1;
         }
     }

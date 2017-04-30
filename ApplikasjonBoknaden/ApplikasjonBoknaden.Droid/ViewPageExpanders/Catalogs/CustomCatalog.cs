@@ -7,9 +7,9 @@ namespace ApplikasjonBoknaden.Droid.ViewPageExpanders
     {
         protected PageFrag[] Pages;
         protected static PageFrag[] treeBuiltInCatalog = {
-            new PageFrag { LayoutID = Resource.Layout.DialogueFragmentRegisterUserLayout,
+            new PageFrag { LayoutID = Resource.Layout.UserPageSoldItemsLayout,
                            Header = "Solgte varer" },
-            new PageFrag { LayoutID = Resource.Layout.DialogueFragmentSearchFiltersLayout,
+            new PageFrag { LayoutID = Resource.Layout.UserPageSoldItemsLayout,
                            Header = "Til salgs" },
         };
 

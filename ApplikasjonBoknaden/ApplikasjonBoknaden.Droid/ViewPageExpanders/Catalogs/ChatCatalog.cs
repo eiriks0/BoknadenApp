@@ -15,12 +15,10 @@ namespace ApplikasjonBoknaden.Droid.ViewPageExpanders
     class ChatCatalog : CustomCatalog
     {
         new protected static PageFrag[] treeBuiltInCatalog = {
-            new PageFrag { LayoutID = Resource.Layout.DialogueFragmentRegisterUserLayout,
+            new PageFrag { LayoutID = Resource.Layout.ChatPageSellingLayout,
                            Header = "Selger" },
-            new PageFrag { LayoutID = Resource.Layout.DialogueFragmentSearchFiltersLayout,
+            new PageFrag { LayoutID = Resource.Layout.ChatPageSellingLayout,
                            Header = "Kjøper" },
-            new PageFrag { LayoutID = Resource.Layout.DialogueFragmentSearchFiltersLayout,
-                           Header = "Test" },
         };
 
         public ChatCatalog()

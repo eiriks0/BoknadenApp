@@ -20,10 +20,12 @@ using ApplikasjonBoknaden.Droid.DialogFragments;
 using ApplikasjonBoknaden.Droid.Fragments;
 using RestSharp;
 using Newtonsoft.Json;
+using Android.Content.PM;
 
 namespace ApplikasjonBoknaden.Droid
 {
-    [Activity(Label = "LoginActivity")]
+    //[Activity(Label = "LoginActivity")]
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainMenuActivity : CustomFragmentActivity
     {
 
@@ -81,7 +83,6 @@ namespace ApplikasjonBoknaden.Droid
                 {
                     itemStoreImageButton.Alpha = 1.0f;
                     ChangeFragment(new ItemStoreFragment());
-                    Toast.MakeText(this, "Item", ToastLength.Long).Show();
                 }
                 if (e.Event.Action == MotionEventActions.Down)
                 {
@@ -96,7 +97,6 @@ namespace ApplikasjonBoknaden.Droid
                 {
                     chatPageImageButton.Alpha = 1.0f;
                     ChangeFragment(new ChatPageFragment());
-                    Toast.MakeText(this, "Chat", ToastLength.Long).Show();
                 }
                 if (e.Event.Action == MotionEventActions.Down)
                 {
@@ -111,7 +111,6 @@ namespace ApplikasjonBoknaden.Droid
                 {
                     UserPageImageButton.Alpha = 1.0f;
                     ChangeFragment(new UserPageActivity());
-                    Toast.MakeText(this, "User", ToastLength.Long).Show();
                 }
                 if (e.Event.Action == MotionEventActions.Down)
                 {

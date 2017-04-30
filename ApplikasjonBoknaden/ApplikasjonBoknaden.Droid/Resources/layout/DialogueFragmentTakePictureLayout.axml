@@ -115,7 +115,7 @@
                     p7:cardBackgroundColor="@color/white"
                     android:background="@layout/Blue_Button"
                     style="@style/button_text"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:layout_width="280.0dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -644,8 +644,8 @@
                     p7:cardCornerRadius="@dimen/abc_action_bar_content_inset_material"
                     p7:cardBackgroundColor="@color/white"
                     style="@style/button_text"
-                    android:visibility="gone"
-                    android:layout_width="300.0dp"
+                    android:visibility="visible"
+                    android:layout_width="370.0dp"
                     android:layout_height="match_parent">
                     <LinearLayout
                         android:orientation="vertical"
@@ -746,20 +746,27 @@
                             p7:cardBackgroundColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/linearLayout7" />
                             <ScrollView
                                 android:minWidth="25px"
                                 android:minHeight="25px"
                                 android:id="@+id/scrollView2"
-                                android:layout_width="250.0dp"
-                                android:layout_height="170.0dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="200.0dp"
                                 android:layout_gravity="center">
-                                <GridLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                <LinearLayout
+                                    android:orientation="vertical"
                                     android:minWidth="25px"
                                     android:minHeight="25px"
-                                    android:columnCount="1"
-                                    android:id="@+id/tableLayoutAdsCard" />
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/AdDisplayer" />
                             </ScrollView>
                         </android.support.v7.widget.CardView>
                         <Button

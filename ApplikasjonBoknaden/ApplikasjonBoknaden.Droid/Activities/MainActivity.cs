@@ -13,11 +13,12 @@ using Android.Graphics;
 using System.IO;
 using ApplikasjonBoknaden.JsonHelpers;
 using ApplikasjonBoknaden.Droid.SavedValues;
+using Android.Content.PM;
 
 namespace ApplikasjonBoknaden.Droid
 {
     // "NoHistory = true" prevents the user to get back to this activity when they press back on their phone
-    [Activity (NoHistory = true, Label = "ApplikasjonBoknaden.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity (NoHistory = true, Label = "ApplikasjonBoknaden.Droid", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
 
 	public class MainActivity : Activity
 	{

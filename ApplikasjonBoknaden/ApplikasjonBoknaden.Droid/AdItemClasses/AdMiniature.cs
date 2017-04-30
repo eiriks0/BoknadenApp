@@ -20,6 +20,7 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
 
         public Json.Ad AdPack_Ad;
         private Button AdPack_Button;
+        private Button ShowInterestButton;
 
         private Json.Aditem _Product;
         private View AdPack_View;
@@ -30,6 +31,8 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
         //private LinearLayout AdPack_HorizontalPri;
         private LinearLayout AdPack_TextFogBackground;
         private int PackPrice = 0;
+
+        private ViewGroup _Parent;
 
         private ViewGroup AdPack_Parent;
 
@@ -76,6 +79,11 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
             return AdPack_Button;
         }
 
+        public Button GetShowInterestButton()
+        {
+            return ShowInterestButton;
+        }
+
         public Json.Aditem GetProduct()
         {
             return _Product;
@@ -83,9 +91,15 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
 
         private void Initiate(ViewGroup parent)
         {
+            _Parent = parent;
             AdPack_View = LayoutInflater.From(Context).Inflate(Resource.Layout.AdMiniatureLayout, parent, false);
             parent.AddView(AdPack_View);
             SetButtonValues();
+        }
+
+        public void RemoveFromParent()
+        {
+            _Parent.RemoveView(this.RootView);
         }
 
         public void setImage(Bitmap b)
@@ -101,9 +115,22 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
             this.AdPack_PriceText.Text = "Pris:" + " " + aditem.price.ToString() + " " + "Kr";
         }
 
+        public void InitiateShowInterestButton(string buttonText, Boolean isred)
+        {
+            ShowInterestButton.Visibility = ViewStates.Visible;
+            if (isred)
+            {
+                ShowInterestButton.SetBackgroundResource(Resource.Layout.Red_Button);
+            }
+
+            ShowInterestButton.Text = buttonText;
+        }
+
         private void SetButtonValues()
         {
             AdPack_Button = AdPack_View.FindViewById<Button>(Resource.Id.AdPack_button);
+            ShowInterestButton = AdPack_View.FindViewById<Button>(Resource.Id.ShowInterestButton);
+            ShowInterestButton.Visibility = ViewStates.Gone;
             AdPack_ImageView = AdPack_View.FindViewById<ImageView>(Resource.Id.AdPack_ImageView);
             AdPack_SellerText = AdPack_View.FindViewById<TextView>(Resource.Id.AdPack_SellerText);
             AdPack_PriceText = AdPack_View.FindViewById<TextView>(Resource.Id.AdPack_PriceText);

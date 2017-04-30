@@ -15,22 +15,23 @@
             android:minWidth="25px"
             android:minHeight="25px"
             android:id="@+id/linearLayout4"
-            android:background="#fafafa"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="350.0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
             <ScrollView
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollView1">
                 <LinearLayout
                     android:orientation="vertical"
                     android:minWidth="25px"
                     android:minHeight="25px"
+                    android:id="@+id/linearLayout10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/linearLayout10">
+                    android:background="@layout/White_Button">
                     <RelativeLayout
                         android:minWidth="25px"
                         android:minHeight="25px"
@@ -101,37 +102,36 @@
                             </LinearLayout>
                         </LinearLayout>
                     </RelativeLayout>
+                    <Button
+                        android:text="Meld interesse for produkt"
+                        android:id="@+id/LogOutUserbutton"
+                        android:background="@layout/Blue_Button"
+                        style="@style/button_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:minWidth="25px"
                         android:minHeight="25px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout7"
-                        android:background="@color/app_main_color" />
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout6">
+                        android:id="@+id/linearLayout6"
+                        android:background="#fff">
                         <TextView
                             android:text="Navn;"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
-                            android:textColor="@color/app_main_color"
-                            android:gravity="center" />
+                            android:textColor="@color/app_main_color" />
                         <TextView
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
                             android:textColor="@color/Black"
-                            android:text="Objektorientert programmering"
-                            android:gravity="center" />
+                            android:text="Objektorientert programmering" />
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
@@ -141,23 +141,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true">
+                        android:layout_alignParentEnd="true"
+                        android:background="#fff">
                         <TextView
                             android:text="Pris:"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
-                            android:textColor="@color/app_main_color"
-                            android:gravity="center" />
+                            android:textColor="@color/app_main_color" />
                         <TextView
                             android:text="500 kr"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
-                            android:textColor="@color/Black"
-                            android:gravity="center" />
+                            android:textColor="@color/Black" />
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
@@ -165,23 +164,22 @@
                         android:minHeight="25px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout6">
+                        android:id="@+id/linearLayout6"
+                        android:background="#fff">
                         <TextView
                             android:text="Beskrivelse:"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
-                            android:textColor="@color/app_main_color"
-                            android:gravity="center" />
+                            android:textColor="@color/app_main_color" />
                         <TextView
                             android:text="Denne boken inneholder mye informasjon om den mulige saksen på badet  gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhg"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textView1"
-                            android:textColor="@color/Black"
-                            android:gravity="center" />
+                            android:textColor="@color/Black" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
