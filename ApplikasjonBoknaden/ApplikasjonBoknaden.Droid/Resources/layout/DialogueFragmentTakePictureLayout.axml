@@ -115,7 +115,7 @@
                     p7:cardBackgroundColor="@color/white"
                     android:background="@layout/Blue_Button"
                     style="@style/button_text"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="280.0dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -644,7 +644,7 @@
                     p7:cardCornerRadius="@dimen/abc_action_bar_content_inset_material"
                     p7:cardBackgroundColor="@color/white"
                     style="@style/button_text"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:layout_width="300.0dp"
                     android:layout_height="match_parent">
                     <LinearLayout
@@ -686,7 +686,7 @@
                                 android:layout_gravity="center">
                                 <EditText
                                     android:inputType="textEmailAddress"
-                                    android:id="@+id/editTextUsername"
+                                    android:id="@+id/AdPackNameText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -720,7 +720,7 @@
                                 android:layout_gravity="center">
                                 <EditText
                                     android:inputType="textEmailAddress"
-                                    android:id="@+id/editTextUsername"
+                                    android:id="@+id/AdPackDescriptionText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"

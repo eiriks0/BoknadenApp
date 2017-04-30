@@ -74,22 +74,49 @@ namespace ApplikasjonBoknaden.Droid
         /// </summary>
         protected void SetButtonValues()
         {
-            Android.Widget.ImageButton itemStoreImageButton = FindViewById<Android.Widget.ImageButton>(Resource.Id.ItemStoreImageButton);
-            itemStoreImageButton.Click += delegate {
-                ChangeFragment(new ItemStoreFragment());
-                Toast.MakeText(this, "Item", ToastLength.Long).Show();
+            Android.Widget.ImageView itemStoreImageButton = FindViewById<Android.Widget.ImageView>(Resource.Id.ItemStoreImage);
+            itemStoreImageButton.Touch += (object sender, View.TouchEventArgs e) =>
+            {
+                if (e.Event.Action == MotionEventActions.Up)
+                {
+                    itemStoreImageButton.Alpha = 1.0f;
+                    ChangeFragment(new ItemStoreFragment());
+                    Toast.MakeText(this, "Item", ToastLength.Long).Show();
+                }
+                if (e.Event.Action == MotionEventActions.Down)
+                {
+                    itemStoreImageButton.Alpha = 0.4f;
+                }
             };
 
-            Android.Widget.ImageButton chatPageImageButton = FindViewById<Android.Widget.ImageButton>(Resource.Id.ChatPageImageButton);
-            chatPageImageButton.Click += delegate {
-                ChangeFragment(new ChatPageFragment());
-                Toast.MakeText(this, "Chat", ToastLength.Long).Show();
+            Android.Widget.ImageView chatPageImageButton = FindViewById<Android.Widget.ImageView>(Resource.Id.ChatPageImage);
+            chatPageImageButton.Touch += (object sender, View.TouchEventArgs e) =>
+            {
+                if (e.Event.Action == MotionEventActions.Up)
+                {
+                    chatPageImageButton.Alpha = 1.0f;
+                    ChangeFragment(new ChatPageFragment());
+                    Toast.MakeText(this, "Chat", ToastLength.Long).Show();
+                }
+                if (e.Event.Action == MotionEventActions.Down)
+                {
+                    chatPageImageButton.Alpha = 0.4f;
+                }
             };
 
-            Android.Widget.ImageButton UserPageImageButton = FindViewById<Android.Widget.ImageButton>(Resource.Id.UserPageImageButton);
-            UserPageImageButton.Click += delegate {
-                ChangeFragment(new UserPageActivity());
-                Toast.MakeText(this, "User", ToastLength.Long).Show();
+            Android.Widget.ImageView UserPageImageButton = FindViewById<Android.Widget.ImageView>(Resource.Id.UserPageImage);
+            UserPageImageButton.Touch += (object sender, View.TouchEventArgs e) =>
+            {
+                if (e.Event.Action == MotionEventActions.Up)
+                {
+                    UserPageImageButton.Alpha = 1.0f;
+                    ChangeFragment(new UserPageActivity());
+                    Toast.MakeText(this, "User", ToastLength.Long).Show();
+                }
+                if (e.Event.Action == MotionEventActions.Down)
+                {
+                    UserPageImageButton.Alpha = 0.4f;
+                }
             };
 
 

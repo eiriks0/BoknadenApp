@@ -158,6 +158,7 @@
     <Compile Include="AdItemClasses\AdMiniature.cs" />
     <Compile Include="AdItemClasses\ProductMiniature.cs" />
     <Compile Include="AndroidJsonHelpers\AndroidJsonHelper.cs" />
+    <Compile Include="DialogFragments\AdPackDialogueFragment.cs" />
     <Compile Include="Fragments\ChatPageFragment.cs" />
     <Compile Include="Fragments\CostumParent\CostumFragment.cs" />
     <Compile Include="DialogFragments\CostumParent\CustomDialogActivity.cs" />
@@ -174,9 +175,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavedValues\UserValues.cs" />
     <Compile Include="DialogFragments\SearchFilterDialogueFragment.cs" />
-    <Compile Include="ViewPageExpanders\TreeCatalog.cs" />
-    <Compile Include="ViewPageExpanders\TreePagerAdapter.cs" />
+    <Compile Include="ViewPageExpanders\Catalogs\ChatCatalog.cs" />
+    <Compile Include="ViewPageExpanders\Adapters\AdPackAdapter.cs" />
     <Compile Include="Fragments\UserPageFragment.cs" />
+    <Compile Include="ViewPageExpanders\Adapters\CustomPageAdapter.cs" />
+    <Compile Include="ViewPageExpanders\Catalogs\CustomCatalog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -236,6 +239,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Background_Blue.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AdItemLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AdPackLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

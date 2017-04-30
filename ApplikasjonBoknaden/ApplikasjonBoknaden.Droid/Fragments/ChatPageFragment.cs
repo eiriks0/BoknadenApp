@@ -12,7 +12,6 @@ using Android.Views;
 using Android.Widget;
 using ApplikasjonBoknaden.Droid.DialogFragments;
 using Android.Support.V4.View;
-using ApplikasjonBoknaden.Droid.ViewPageExpanders.ApplikasjonBoknaden.Droid.ViewPageExpanders;
 using ApplikasjonBoknaden.Droid.ViewPageExpanders;
 
 namespace ApplikasjonBoknaden.Droid.Fragments
@@ -28,8 +27,7 @@ namespace ApplikasjonBoknaden.Droid.Fragments
         {
 
             ViewPager viewPager = Fragmentview.FindViewById<ViewPager>(Resource.Id.viewpager);
-            TreeCatalog treeCatalog = new TreeCatalog();
-            viewPager.Adapter = new TreePagerAdapter(this.Context, treeCatalog);
+            viewPager.Adapter = new CustomPageAdapter(this.Context, new ChatCatalog());
 
         }
     }

@@ -370,56 +370,68 @@ namespace ApplikasjonBoknaden.Json
         public string courseid { get; set; }
     }
 
-  //  public class Ads
-  //  {
-  //      public List<Ad> Ad = new List<Ad>();
-   // }
+    public class NewAdTest
+    {
+        public int userid { get; set; }
+        public int courseid { get; set; }
+        public string adname { get; set; }
+        public string text { get; set; }
+        public object pinned { get; set; }
+        public int deleted { get; set; }
 
-   // public class Ad
-  //  {
-     //   public string userid = "";
+        public List<Aditem> aditems { get; set; }
+    }
+
+    //  public class Ads
+    //  {
+    //      public List<Ad> Ad = new List<Ad>();
+    // }
+
+    // public class Ad
+    //  {
+    //   public string userid = "";
     //    public string universityid = null;
-     //   public string courseid = null;
-   //     public string adname { get; set; }
+    //   public string courseid = null;
+    //     public string adname { get; set; }
 
     //    public string text = null;
     //    public string pinned = null;
-       // public string deleted = 0;
+    // public string deleted = 0;
 
-  //      public List<AdItem> aditems = new List<AdItem>();
+    //      public List<AdItem> aditems = new List<AdItem>();
 
-   // }
+    // }
 
-   // public class AdItem
-  //  {
-
-
-       // public string userid = "";
-     //   public string adid = null;
-      //  public string imageid = null;
-
-        //  public string universityid = "";
-        // public string courseid = "";
-        //public string adname = "";
-       // public string price = null;
-     //   public string text = null;
-      //  public string description = null;
-      //  public string isbn = null;
-        //public string deleted = "0";
+    // public class AdItem
+    //  {
 
 
-        // public string text = "";
-        // public string pinned = "";
-        // public string deleted = "";
-        //   userid: { type: Sequelize.INTEGER, allowNull: false },
-        // adid: { type: Sequelize.INTEGER, allowNull: false },
-        // imageid: { type: Sequelize.INTEGER, allowNull: true },
-        //  price: { type: Sequelize.FLOAT, allowNull: false },
-        // text: { type: Sequelize.TEXT, allowNull: false },
-        // description: { type: Sequelize.TEXT, allowNull: true },
-        // isbn: { type: Sequelize.STRING(13), allowNull: true },
-        // deleted: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false }
-  //  }
+    // public string userid = "";
+    //   public string adid = null;
+    //  public string imageid = null;
+
+    //  public string universityid = "";
+    // public string courseid = "";
+    //public string adname = "";
+    // public string price = null;
+    //   public string text = null;
+    //  public string description = null;
+    //  public string isbn = null;
+    //public string deleted = "0";
+
+
+    // public string text = "";
+    // public string pinned = "";
+    // public string deleted = "";
+    //   userid: { type: Sequelize.INTEGER, allowNull: false },
+    // adid: { type: Sequelize.INTEGER, allowNull: false },
+    // imageid: { type: Sequelize.INTEGER, allowNull: true },
+    //  price: { type: Sequelize.FLOAT, allowNull: false },
+    // text: { type: Sequelize.TEXT, allowNull: false },
+    // description: { type: Sequelize.TEXT, allowNull: true },
+    // isbn: { type: Sequelize.STRING(13), allowNull: true },
+    // deleted: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false }
+    //  }
 
     public class User
     {

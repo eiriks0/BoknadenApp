@@ -24,6 +24,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using ApplikasjonBoknaden.Json;
 using ApplikasjonBoknaden.Droid.Helpers;
+using Android.Graphics.Drawables;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
@@ -69,6 +70,8 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private EditText ProductNameText;
         private EditText ProductDescriptionText;
         private EditText ProductPriceText;
+        private EditText AdPackNameText;
+        private EditText AdPackDescriptionText;
 
         private CardView PublishCard = null;
 
@@ -92,6 +95,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private EditText ManualISBNInput = null;
         private GridLayout AdDisplayer;
         private Json.Ad NewAd = new Json.Ad();
+        private Bitmap CurrentProductImage;
         //private List<AdItem>
 
 
@@ -102,6 +106,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
         protected override void InitiateFragment()
         {
+            _Ad = new Json.Ad();
             SetButtonValues();
             SetButtonValuesISBNScanCard();
             SetButtonValuesLastCard();
@@ -143,6 +148,8 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             ProductNameText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductNameText);
             ProductDescriptionText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductDescriptionText);
             ProductPriceText = Dialogueview.FindViewById<EditText>(Resource.Id.ProductPriceText);
+            AdPackNameText = Dialogueview.FindViewById<EditText>(Resource.Id.AdPackNameText);
+            AdPackDescriptionText = Dialogueview.FindViewById<EditText>(Resource.Id.AdPackDescriptionText);
 
             PrevStepImage = Dialogueview.FindViewById<ImageView>(Resource.Id.PrevStepImage);
             PrevStepImage.Touch += (object sender, View.TouchEventArgs e) =>
@@ -204,10 +211,11 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
       
             ProductNameText.Text = "";
             ProductDescriptionText.Text = "";
+            ProductPriceText.Text = "";
 
             GoToCard(ChooseItemTypeCard);
             Json.Aditem newProdukt = new Json.Aditem();
-            _Ad = new Json.Ad();
+       
             _Ad.aditems = new List<Json.Aditem>();
             _Ad.aditems.Add(newProdukt);
             _Ad.user = new Json.User();
@@ -215,7 +223,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             _Ad.user.firstname = SavedValues.UserValues.GetSavedFirstName(CallerActivity.sP);
             _Ad.user.lastname = SavedValues.UserValues.GetSavedLastName(CallerActivity.sP);
            // _AdItems.Add(newProdukt);
-            SetProductInfo(newProdukt);
+           // SetProductInfo(newProdukt);
             _SelectedProduct = newProdukt;
             AdItemClasses.AdMiniature newAdminiature = new AdItemClasses.AdMiniature(Context, AdDisplayer, newProdukt, _Ad);
             _SelectedAdminiature = newAdminiature;
@@ -240,7 +248,15 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             ProductNameText.Text = product.text;
             ProductDescriptionText.Text = product.description;
             ProductPriceText.Text = product.price.ToString();
-            ManualISBNInput.Text = product.isbn.ToString();
+            if (product.isbn != null)
+            {
+                ManualISBNInput.Text = product.isbn.ToString();
+            }
+            else
+            {
+                ManualISBNInput.Text = "";
+            }
+          
             int height = Resources.DisplayMetrics.HeightPixels;
             int width = _imageView.Height;
 
@@ -249,6 +265,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 try
                 {
                     Bitmap myBitmap = BitmapFactory.DecodeByteArray(ObjectToByteArray(product.image), height, width);
+                    CurrentProductImage = myBitmap;
                     _imageView.SetImageBitmap(myBitmap);
                 }
                 catch
@@ -287,6 +304,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
             if (App.bitmap != null)
             {
+                CurrentProductImage = App.bitmap;
                 _imageView.SetImageBitmap(App.bitmap);
                 _SelectedAdminiature.setImage(App.bitmap);
                 _SelectedProduct.image = App.bitmap;
@@ -359,23 +377,50 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
             else if (GetCurrentActiveCard() == AdsCard)
             {
+                ValidationResponder = InputValidator.validGeneralName(AdPackNameText.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+                ValidationResponder = InputValidator.validGeneralDescription(AdPackDescriptionText.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
                 GoToCard(PublishCard);
             }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
+                ValidationResponder = InputValidator.validAdItemImage(CurrentProductImage);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+
                 if (NewitemType == ItemType.Book)
                 {
                     GoToCard(ISBNScanCard);
                 }
                 else
                 {
-                    // GoToCard(ISBNScanCard);
+                    GoToCard(LastCard);
                 }
 
             }
             else if (GetCurrentActiveCard() == ISBNScanCard)
             {
                 _SelectedProduct.isbn = ManualISBNInput.Text;
+
+                ValidationResponder = InputValidator.validISBN(ManualISBNInput.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+
                 GoToNextStepOfAddBook(ManualISBNInput.Text);
                 //  GoToCard(TakePictureCard);
             }
@@ -385,6 +430,28 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
             else if (GetCurrentActiveCard() == LastCard)
             {
+                ValidationResponder = InputValidator.validAdItemPrice(ProductPriceText.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+
+                ValidationResponder = InputValidator.validGeneralDescription(ProductDescriptionText.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+
+                ValidationResponder = InputValidator.validGeneralName(ProductNameText.Text);
+                if (!ValidationResponder.Successful)
+                {
+                    ShowToast(ValidationResponder.Information);
+                    return;
+                }
+
+
                 _SelectedProduct.text = ProductNameText.Text;
                 _SelectedProduct.description = ProductDescriptionText.Text;
                 _SelectedProduct.price = Int32.Parse(ProductPriceText.Text);
@@ -395,10 +462,12 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
             else if (GetCurrentActiveCard() == PublishCard)
             {
+               // _Ad.adname = name
                Publish(_Ad);
                 Console.WriteLine("Publishes");
             }
         }
+
 
         private void PrevStepImageAction()
         {
@@ -548,11 +617,22 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             ShowToast("New card");
         }
 
-        private async void Publish(Ad ad)
+        private void Publish(Ad ad)
         {
+            if (AdPackNameText != null && AdPackDescriptionText != null)
+            {
+                ad.adname = AdPackNameText.Text;
+                ad.text = AdPackDescriptionText.Text;
+            }else
+            {
+                ad.adname = "Fak";
+                ad.text = "Shit";
+            }
+     
+
             RestSharpHelper r = new RestSharpHelper();
-            r.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP));
-           // await JsonUploader.UploadNewAd(ad);
+            r.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP), ad);
+            // await JsonUploader.UploadNewAd(ad);
         }
 
 
@@ -565,6 +645,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private void SetItemAsNewOther(object sender, EventArgs eventArgs)
         {
             NewitemType = ItemType.Other;
+            GoToCard(TakePictureCard);
         }
 
         private void BackToScannerFromDescription(object sender, EventArgs e)

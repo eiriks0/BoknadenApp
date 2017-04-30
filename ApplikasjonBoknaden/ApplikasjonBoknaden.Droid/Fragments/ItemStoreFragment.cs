@@ -13,6 +13,7 @@ using Android.Widget;
 using RestSharp;
 using System.Net.Http;
 using Newtonsoft.Json;
+using ApplikasjonBoknaden.Json;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
@@ -71,6 +72,13 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             AdDisplayer.AddView(_ProgressBar);
         }
 
+        private void ShowAdPack(Ad ad)
+        {
+            AdPackDialogueFragment APDF = new AdPackDialogueFragment();
+            APDF.Show(FragmentActivityCaller.SupportFragmentManager, "dialog", FragmentActivityCaller, ad);
+
+        }
+
 
         private async void GetNewestAdsFromDatabase()
         {
@@ -89,6 +97,9 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             foreach (Json.Ad a in root.ads)
             {
                 AdItemClasses.AdMiniature AdPackDisplay1 = new AdItemClasses.AdMiniature(Context, AdDisplayer, a);
+                AdPackDisplay1.GetButton().Click += delegate {
+                    ShowAdPack(a);
+                };
             }
         }
 

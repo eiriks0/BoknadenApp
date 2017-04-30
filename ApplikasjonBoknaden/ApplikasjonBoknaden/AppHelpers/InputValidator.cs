@@ -18,6 +18,7 @@ using Android.Widget;
 using System.Net;
 using static Android.Provider.ContactsContract.CommonDataKinds;
 using System.Text.RegularExpressions;
+using Android.Graphics;
 
 namespace ApplikasjonBoknaden
 {
@@ -76,6 +77,140 @@ namespace ApplikasjonBoknaden
                 vR.Information = "ISBN er for lang";
                 return vR;
             }
+
+            vR.Successful = true;
+            vR.Information = "";
+            return vR;
+        }
+
+        /// <summary>
+        /// Checks if given Bitmap is a valid AditemImage
+        /// </summary>
+        /// <param name="adDescription"></param>
+        /// <returns></returns>
+        public static ValidationResponse validAdItemImage(Bitmap b)
+        {
+            ValidationResponse vR = new ValidationResponse();
+
+            if (b == null)
+            {
+                vR.Successful = false;
+                vR.Information = "Produktet trenger ett bilde";
+                return vR;
+            }
+
+            vR.Successful = true;
+            vR.Information = "";
+            return vR;
+        }
+
+        /// <summary>
+        /// Checks if given string is a valid price
+        /// </summary>
+        /// <param name="price"></param>
+        /// <returns></returns>
+        public static ValidationResponse validAdItemPrice(string price)
+        {
+            ValidationResponse vR = new ValidationResponse();
+
+            if (BoknadenHelpers.StringIsEmpty(price))
+            {
+                vR.Successful = false;
+                vR.Information = "Produktet trenger en pris";
+                return vR;
+            }
+
+            int j;
+            if (Int32.TryParse(price, out j))
+            {
+
+            }
+            else
+            {
+                vR.Successful = false;
+                vR.Information = "Pris må være et tall";
+                return vR;
+            }
+
+            if (BoknadenHelpers.StringIsToLong(price, 5))
+            {
+                vR.Successful = false;
+                vR.Information = "Produktets pris er for dyrt";
+                return vR;
+            }
+
+
+            vR.Successful = true;
+            vR.Information = "";
+            return vR;
+        }
+
+        /// <summary>
+        /// Checks if given string is a valid AdPack name
+        /// </summary>
+        /// <param name="price"></param>
+        /// <returns></returns>
+        public static ValidationResponse validGeneralDescription(string adDescription)
+        {
+            ValidationResponse vR = new ValidationResponse();
+
+            if (BoknadenHelpers.StringIsEmpty(adDescription))
+            {
+                vR.Successful = false;
+                vR.Information = "Beskrivelse kan ikke være tom";
+                return vR;
+            }
+
+            if (!BoknadenHelpers.StringIsLongEnough(adDescription, 1))
+            {
+                vR.Successful = false;
+                vR.Information = "Beskrivelsen er for kort";
+                return vR;
+            }
+
+            if (BoknadenHelpers.StringIsToLong(adDescription, 50))
+            {
+                vR.Successful = false;
+                vR.Information = "Beskrivelsen er for lang";
+                return vR;
+            }
+
+
+            vR.Successful = true;
+            vR.Information = "";
+            return vR;
+        }
+
+        /// <summary>
+        /// Checks if given string is a valid AdPack name
+        /// </summary>
+        /// <param name="adName"></param>
+        /// <returns></returns>
+        public static ValidationResponse validGeneralName(string adName)
+        {
+            ValidationResponse vR = new ValidationResponse();
+
+            if (BoknadenHelpers.StringIsEmpty(adName))
+            {
+                vR.Successful = false;
+                vR.Information = "Navn kan ikke være tomt";
+                return vR;
+            }
+
+            if (!BoknadenHelpers.StringIsLongEnough(adName, 1))
+            {
+                vR.Successful = false;
+                vR.Information = "Navn er for kort";
+                return vR;
+            }
+
+            if (BoknadenHelpers.StringIsToLong(adName, 50))
+            {
+                vR.Successful = false;
+                vR.Information = "Navn er for langt";
+                return vR;
+            }
+
 
             vR.Successful = true;
             vR.Information = "";

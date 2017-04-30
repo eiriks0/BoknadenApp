@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>26/04/2017 22:41:47</xs:documentation>
+    <xs:documentation>30/04/2017 02:20:23</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -262,6 +262,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -294,6 +295,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -1422,6 +1424,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -4197,6 +4200,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -4229,6 +4233,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -5282,6 +5287,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -9979,6 +9985,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -10070,6 +10077,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -10102,6 +10110,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -11068,6 +11077,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -11100,6 +11110,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -11663,6 +11674,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -11695,6 +11707,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -12672,6 +12685,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -13177,6 +13191,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -14044,6 +14059,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -15538,6 +15554,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -15677,6 +15694,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -15709,6 +15727,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -17293,6 +17312,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -17325,6 +17345,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -17886,6 +17907,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
+            <xs:enumeration value="@string/AdItemLayout_Interested" />
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
@@ -18393,6 +18415,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -18425,6 +18448,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -20306,6 +20330,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -20338,6 +20363,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -21756,6 +21782,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -21788,6 +21815,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -22351,6 +22379,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -22383,6 +22412,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />
@@ -23948,6 +23978,7 @@
             <xs:enumeration value="@color/background_floating_material_light" />
             <xs:enumeration value="@color/background_material_dark" />
             <xs:enumeration value="@color/background_material_light" />
+            <xs:enumeration value="@color/Black" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_dark" />
             <xs:enumeration value="@color/bright_foreground_disabled_material_light" />
             <xs:enumeration value="@color/bright_foreground_inverse_material_dark" />
@@ -23980,6 +24011,7 @@
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/hint_foreground_material_dark" />
             <xs:enumeration value="@color/hint_foreground_material_light" />
+            <xs:enumeration value="@color/LightBlack" />
             <xs:enumeration value="@color/material_blue_grey_800" />
             <xs:enumeration value="@color/material_blue_grey_900" />
             <xs:enumeration value="@color/material_blue_grey_950" />

@@ -10,11 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V4.View;
-using ApplikasjonBoknaden.Droid.ViewPageExpanders.ApplikasjonBoknaden.Droid.ViewPageExpanders;
 using ApplikasjonBoknaden.Droid.ViewPageExpanders;
 using ApplikasjonBoknaden.Droid.DialogFragments;
 using ApplikasjonBoknaden.JsonHelpers;
 using RestSharp;
+using static ApplikasjonBoknaden.Droid.ViewPageExpanders.AdPackAdapter;
 
 namespace ApplikasjonBoknaden.Droid
 {
@@ -59,8 +59,8 @@ namespace ApplikasjonBoknaden.Droid
             TextView usernameTextview = Fragmentview.FindViewById<TextView>(Resource.Id.UserNametextView);
             usernameTextview.Text = SavedValues.UserValues.GetSavedFirstName(sP) + " " + SavedValues.UserValues.GetSavedLastName(sP);
             ViewPager viewPager = Fragmentview.FindViewById<ViewPager>(Resource.Id.viewpager);
-            TreeCatalog treeCatalog = new TreeCatalog();
-            viewPager.Adapter = new TreePagerAdapter(this.Context, treeCatalog);
+            CustomCatalog customCatalog = new CustomCatalog();
+            viewPager.Adapter = new CustomPageAdapter(this.Context, customCatalog);
 
         }
         /// <summary>
