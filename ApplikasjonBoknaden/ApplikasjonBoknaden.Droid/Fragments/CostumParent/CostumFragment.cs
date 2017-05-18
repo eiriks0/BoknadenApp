@@ -16,13 +16,12 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
     public class CostumFragment : Android.Support.V4.App.Fragment
     {
         protected View Fragmentview = null;
-        protected CustomFragmentActivity FragmentActivityCaller = null;
+        protected CustomFragmentActivity CallerActivity = null;
 
         public void SetFragmentActivityCaller(CustomFragmentActivity caller)
         {
-            FragmentActivityCaller = caller;
+            CallerActivity = caller;
         }
-
 
         protected virtual void ShowToast(string message)
         {

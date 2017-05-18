@@ -60,8 +60,8 @@ namespace ApplikasjonBoknaden.Droid
             {
                 fragment.SetFragmentActivityCaller(this);
                 FT = SupportFragmentManager.BeginTransaction();
-
-                FT.SetCustomAnimations(Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_bottom);
+               // FT.SetCustomAnimations(Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_bottom, Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_bottom);
+                FT.SetCustomAnimations(Resource.Animation.design_bottom_sheet_slide_in, Resource.Animation.design_bottom_sheet_slide_out);
                 // UserPageFragment = new ItemStoreFragment();
                 FT.Replace(Resource.Id.FragmentHolderMainMenu, fragment, "details_fragment");
                 //  ft.SetTransition(Android.Support.V4.App.FragmentTransaction.TransitFragmentFade);

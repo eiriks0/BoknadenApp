@@ -19,11 +19,12 @@ using Android.Graphics;
 namespace ApplikasjonBoknaden.Droid.DialogFragments.CostumParent
 {
     [Activity(MainLauncher = true)]
-    public class CustomDialogActivity : Android.Support.V4.App.DialogFragment
+    public class CustomDialogFragment : Android.Support.V4.App.DialogFragment
     {
         Button Button_Dismiss;
         protected CustomFragmentActivity CallerActivity = null;
         protected View Dialogueview = null;
+
 
 
         /// <summary>
@@ -38,9 +39,11 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments.CostumParent
             base.Show(manager, tag);
         }
 
-        protected virtual void ShowToast(string message)
+        protected virtual void ShowToast(string message, Boolean showCheckMark = false)
         {
-            Toast.MakeText(CallerActivity, message, ToastLength.Long).Show();
+            PoppupDialogueFragment APDF = new PoppupDialogueFragment();
+            APDF.Show(CallerActivity.SupportFragmentManager, "dialog", CallerActivity, message, showCheckMark);
+            //Toast.MakeText(CallerActivity, message, ToastLength.Long).Show();
         }
 
         public override Android.Views.View OnCreateView(Android.Views.LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

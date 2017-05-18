@@ -5,4 +5,7 @@
   <color name="Black">#101010</color>
   <color name="LightBlack">#888</color>
   <color name="app_main_color">#0075a1</color>
+  <color name="semitransparent_black">#80000000</color>
+  <color name="price_green">#51e20d</color>
+
 </resources>

@@ -7,14 +7,62 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout2" />
-    <RelativeLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/relativeLayout1">
+        <ScrollView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/scrollView1"
+            android:fillViewport="true"
+            android:background="#ffff"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout4"
+                android:layout_weight="1"
+                android:paddingBottom="50.0dp">
+                <RelativeLayout
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativeLayout_ChatBuble_Seller"
+                    android:visibility="visible"
+                    android:layout_marginBottom="2.0dp"
+                    android:layout_marginTop="2.0dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:id="@+id/linearLayout5"
+                        android:background="@layout/Background_ChatBuble_Seller"
+                        android:paddingRight="5.0dp"
+                        android:paddingLeft="5.0dp"
+                        android:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="10.0dp"
+                        android:paddingBottom="10.0dp"
+                        android:layout_marginRight="10.0dp">
+                        <TextView
+                            android:text="Eirik Slottedalen"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/ChatBuble_Textview"
+                            android:textColor="@color/white"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
         <android.support.v7.widget.CardView xmlns:p7="http://schemas.android.com/apk/res-auto"
             android:minWidth="25px"
             android:minHeight="25px"
@@ -23,7 +71,7 @@
             p7:cardBackgroundColor="#fafafa"
             android:background="@layout/White_Button"
             style="@style/button_text"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">

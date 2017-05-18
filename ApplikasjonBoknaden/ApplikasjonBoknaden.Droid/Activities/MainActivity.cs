@@ -14,6 +14,7 @@ using System.IO;
 using ApplikasjonBoknaden.JsonHelpers;
 using ApplikasjonBoknaden.Droid.SavedValues;
 using Android.Content.PM;
+using System.Threading.Tasks;
 
 namespace ApplikasjonBoknaden.Droid
 {
@@ -62,12 +63,20 @@ namespace ApplikasjonBoknaden.Droid
 
         private async void TryToLogIn(UserOld user)
         {
-            System.Net.Http.HttpResponseMessage Response = await Json.JsonUploader.CheckLoginCredentials(user);
+            System.Net.Http.HttpResponseMessage Response = await Task.Run(() => Json.JsonUploader.CheckLoginCredentials(user));
 
             if (Response.IsSuccessStatusCode)
             {
-                StartActivity(typeof(MainMenuActivity));
-                Toast.MakeText(this, "Success!", ToastLength.Long).Show();
+                if (user.verified == "1")
+                {
+                    StartActivity(typeof(MainMenuActivity));
+                    Toast.MakeText(this, "Success!", ToastLength.Long).Show();
+                }
+                else
+                {
+                    StartActivity(typeof(LoginActivity));
+                    Toast.MakeText(this, "Not verified!", ToastLength.Long).Show();
+                }
             }
             else
             {

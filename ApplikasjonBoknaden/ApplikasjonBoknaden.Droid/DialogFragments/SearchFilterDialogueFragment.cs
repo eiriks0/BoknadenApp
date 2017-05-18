@@ -15,7 +15,7 @@ using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 namespace ApplikasjonBoknaden.Droid
 {
     [Activity(Label = "SearchFilterActivity")]
-    public class SearchFilterActivity : CustomDialogActivity
+    public class SearchFilterActivity : CustomDialogFragment
     {
         private ISharedPreferencesEditor sPEditor;
         private ISharedPreferences sP;

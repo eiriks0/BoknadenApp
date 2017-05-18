@@ -54,10 +54,10 @@ namespace ApplikasjonBoknaden.Droid
 
 
 
-            sP = FragmentActivityCaller.GetSharedPreferences("SearchFilter", FileCreationMode.Private);
+            sP = CallerActivity.GetSharedPreferences("SearchFilter", FileCreationMode.Private);
             sPEditor = sP.Edit();
             TextView usernameTextview = Fragmentview.FindViewById<TextView>(Resource.Id.UserNametextView);
-            usernameTextview.Text = SavedValues.UserValues.GetSavedFirstName(sP) + " " + SavedValues.UserValues.GetSavedLastName(sP);
+            usernameTextview.Text = SavedValues.UserValues.GetValueFromToken(sP, AndroidJsonHelpers.AndroidJsonHelper.UserValuesEnums.username) + " " + SavedValues.UserValues.GetValueFromToken(sP, AndroidJsonHelpers.AndroidJsonHelper.UserValuesEnums.lastname);
             ViewPager viewPager = Fragmentview.FindViewById<ViewPager>(Resource.Id.viewpager);
             CustomCatalog customCatalog = new CustomCatalog();
             viewPager.Adapter = new CustomPageAdapter(this.Context, customCatalog);
@@ -69,7 +69,7 @@ namespace ApplikasjonBoknaden.Droid
         private void LogOut()
         {
             SavedValues.UserValues.SaveNewUserValues(new UserOld(), sPEditor);
-            FragmentActivityCaller.StartActivity(typeof(LoginActivity));
+            CallerActivity.StartActivity(typeof(LoginActivity));
         }
 
    //     protected override void OnCreate(Bundle savedInstanceState)

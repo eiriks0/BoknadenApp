@@ -14,7 +14,7 @@ using ApplikasjonBoknaden.Droid.DialogFragments.CostumParent;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
-    public class RegisterNewUserDialogueFragment : CustomDialogActivity
+    public class RegisterNewUserDialogueFragment : CustomDialogFragment
     {
         protected enum NeededValues
         {
@@ -44,6 +44,8 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         protected EditText InputFieldLastname = null;
         protected EditText InputFieldPassword = null;
         protected EditText InputFieldRepeatedPassword = null;
+
+        protected ImageView BackButton = null;
 
 
         protected ValidationResponse ValidationResponder = new ValidationResponse();
@@ -97,6 +99,19 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             InputFieldPassword = Dialogueview.FindViewById<Android.Widget.EditText>(Resource.Id.editTextPassword);
             InputFieldRepeatedPassword = Dialogueview.FindViewById<Android.Widget.EditText>(Resource.Id.editTextRepeatedPassword);
 
+            BackButton = Dialogueview.FindViewById<ImageView>(Resource.Id.ImageViewCardClose);
+            BackButton.Touch += (object sender, View.TouchEventArgs e) =>
+            {
+                if (e.Event.Action == MotionEventActions.Up)
+                {
+                    BackButton.Alpha = 1.0f;
+                    CloseFragment();
+                }
+                if (e.Event.Action == MotionEventActions.Down)
+                {
+                    BackButton.Alpha = 0.4f;
+                }
+            };
 
             Android.Widget.Button RegisterButton = Dialogueview.FindViewById<Android.Widget.Button>(Resource.Id.RegisterUserButton);
             RegisterButton.Click += delegate {
@@ -165,7 +180,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
 
         private async void UploadNewUser()
         {
-            ShowToast("Registrerer");
+            ShowToast("Velkommen" +" " +  WritenUsername +"!", true);
             await Json.JsonUploader.RegisterNewUser(WritenUsername, WritenFirstname, WritenLastname, WritenPassword, WrittenEmail, WritenPhoneNR, WritenCourseID);
            
              CloseFragment();

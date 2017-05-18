@@ -25,11 +25,12 @@ using System.IO;
 using ApplikasjonBoknaden.Json;
 using ApplikasjonBoknaden.Droid.Helpers;
 using Android.Graphics.Drawables;
+using System.Net.Http;
 
 namespace ApplikasjonBoknaden.Droid.DialogFragments
 {
     [Activity(Label = "TakePictureFragment")]
-    public class TakePictureDialogueFragment : CustomDialogActivity
+    public class AddNewAdPackDialogueFragment : CustomDialogFragment
     {
         private enum ItemType
         {
@@ -110,9 +111,9 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             _Ad = new Json.Ad();
             _Ad.aditems = new List<Json.Aditem>();
             _Ad.user = new Json.User();
-            _Ad.user.username = SavedValues.UserValues.GetSavedUsername(CallerActivity.sP);
-            _Ad.user.firstname = SavedValues.UserValues.GetSavedFirstName(CallerActivity.sP);
-            _Ad.user.lastname = SavedValues.UserValues.GetSavedLastName(CallerActivity.sP);
+            _Ad.user.username = SavedValues.UserValues.GetValueFromToken(CallerActivity.sP, AndroidJsonHelpers.AndroidJsonHelper.UserValuesEnums.username);
+            _Ad.user.firstname = SavedValues.UserValues.GetValueFromToken(CallerActivity.sP, AndroidJsonHelpers.AndroidJsonHelper.UserValuesEnums.firstname);
+            _Ad.user.lastname = SavedValues.UserValues.GetValueFromToken(CallerActivity.sP, AndroidJsonHelpers.AndroidJsonHelper.UserValuesEnums.lastname);
 
             SetButtonValues();
             SetButtonValuesISBNScanCard();
@@ -462,7 +463,10 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                     ShowToast(ValidationResponder.Information);
                     return;
                 }
-                GoToCard(PublishCard);
+                Publish(_Ad);
+                CloseFragment();
+
+                //GoToCard(PublishCard);
             }
             else if (GetCurrentActiveCard() == TakePictureCard)
             {
@@ -488,13 +492,6 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             else if (GetCurrentActiveCard() == ISBNScanCard)
             {
                 _SelectedProduct.isbn = ManualISBNInput.Text;
-
-                ValidationResponder = InputValidator.validISBN(ManualISBNInput.Text);
-                if (!ValidationResponder.Successful)
-                {
-                    ShowToast(ValidationResponder.Information);
-                    return;
-                }
 
                 GoToNextStepOfAddBook(ManualISBNInput.Text);
                 //  GoToCard(TakePictureCard);
@@ -573,7 +570,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
             else if (GetCurrentActiveCard() == LastCard)
             {
-              GoToCard(TakePictureCard);
+                    GoToCard(TakePictureCard);
 
             }else if (GetCurrentActiveCard() == PublishCard)
             {
@@ -622,7 +619,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 ShowToast(ValidationResponder.Information);
                 return;
             }
-            GoToCard(LastCard);
+            GoToCard(TakePictureCard);
             //GoToCard();
 
 
@@ -689,21 +686,34 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             }
         }
 
-        private void Publish(Ad ad)
+        private async void Publish(Ad ad)
         {
             if (AdPackNameText != null && AdPackDescriptionText != null)
             {
                 ad.adname = AdPackNameText.Text;
                 ad.text = AdPackDescriptionText.Text;
-            }else
+            }
+            else
             {
                 ad.adname = "Fak";
                 ad.text = "Shit";
             }
-     
 
-            RestSharpHelper r = new RestSharpHelper();
-            r.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP), ad);
+
+            //RestSharpHelper r = new RestSharpHelper();
+            // HttpResponseMessage resp = await RestSharpHelper.AdNewAdd(SavedValues.UserValues.GetSavedToken(CallerActivity.sP), ad);
+            //header = AndroidJsonHelpers.AndroidJsonHelper.CleansedToken(header);
+            HttpResponseMessage resp = await JsonUploader.AddNewAdPack(AndroidJsonHelpers.AndroidJsonHelper.CleansedToken(SavedValues.UserValues.GetSavedToken(CallerActivity.sP)), ad);
+            PoppupDialogueFragment APDF = new PoppupDialogueFragment();
+            if (resp.IsSuccessStatusCode)
+            {
+                APDF.Show(CallerActivity.SupportFragmentManager, "dialog", CallerActivity, "Lastet opp", true);
+            }else
+            {
+                APDF.Show(CallerActivity.SupportFragmentManager, "dialog", CallerActivity, "Noe gikk galt", false);
+            }
+
+     
             // await JsonUploader.UploadNewAd(ad);
         }
 

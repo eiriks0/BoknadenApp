@@ -20,7 +20,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         public ISharedPreferences sP;
         public ISharedPreferencesEditor sPEditor;
         public RestSharpHelper _RestSharpHelper;
-        public TakePictureDialogueFragment takePictureFragment = null;
+        public AddNewAdPackDialogueFragment takePictureFragment = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

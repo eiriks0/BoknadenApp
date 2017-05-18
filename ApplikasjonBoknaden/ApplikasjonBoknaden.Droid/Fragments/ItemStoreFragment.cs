@@ -33,17 +33,18 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
             AdDisplayer = Fragmentview.FindViewById<GridLayout>(Resource.Id.tableLayout1);
            // AdDisplayer.ColumnCount = 2;
             ImageView iv = Fragmentview.FindViewById<ImageView>(Resource.Id.SettingsImage);
+            iv.Alpha = 0.4f;
             iv.Touch += (object sender, View.TouchEventArgs e) =>
             {
                 if (e.Event.Action == MotionEventActions.Up)
                 {
-                    iv.Alpha = 1.0f;
-                    SearchFilterActivity s = new SearchFilterActivity();
-                    s.Show(FragmentActivityCaller.SupportFragmentManager, "dialog", FragmentActivityCaller);
+                   // iv.Alpha = 1.0f;
+                  //  SearchFilterActivity s = new SearchFilterActivity();
+                   // s.Show(FragmentActivityCaller.SupportFragmentManager, "dialog", FragmentActivityCaller);
                 }
                 if (e.Event.Action == MotionEventActions.Down)
                 {
-                    iv.Alpha = 0.4f;
+                  //  iv.Alpha = 0.4f;
                 }
             };
 
@@ -54,8 +55,8 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
                 {
                     iv2.Alpha = 1.0f;
 
-                    FragmentActivityCaller.takePictureFragment = new DialogFragments.TakePictureDialogueFragment();
-                    FragmentActivityCaller.takePictureFragment.Show(FragmentActivityCaller.SupportFragmentManager, "dialog", FragmentActivityCaller);
+                    CallerActivity.takePictureFragment = new DialogFragments.AddNewAdPackDialogueFragment();
+                    CallerActivity.takePictureFragment.Show(CallerActivity.SupportFragmentManager, "dialog", CallerActivity);
 
                 }
                 if (e.Event.Action == MotionEventActions.Down)
@@ -75,7 +76,7 @@ namespace ApplikasjonBoknaden.Droid.DialogFragments
         private void ShowAdPack(Ad ad)
         {
             AdPackDialogueFragment APDF = new AdPackDialogueFragment();
-            APDF.Show(FragmentActivityCaller.SupportFragmentManager, "dialog", FragmentActivityCaller, ad);
+            APDF.Show(CallerActivity.SupportFragmentManager, "dialog", CallerActivity, ad);
 
         }
 

@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>01/05/2017 00:57:13</xs:documentation>
+    <xs:documentation>18/05/2017 19:47:27</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -308,6 +308,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -322,6 +323,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -4246,6 +4248,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -4260,6 +4263,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -10123,6 +10127,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -10137,6 +10142,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -11123,6 +11129,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -11137,6 +11144,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -11720,6 +11728,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -11734,6 +11743,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -15740,6 +15750,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -15754,6 +15765,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -17358,6 +17370,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -17372,6 +17385,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -18461,6 +18475,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -18475,6 +18490,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -20376,6 +20392,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -20390,6 +20407,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -21828,6 +21846,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -21842,6 +21861,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -22425,6 +22445,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -22439,6 +22460,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />
@@ -24024,6 +24046,7 @@
             <xs:enumeration value="@color/material_grey_800" />
             <xs:enumeration value="@color/material_grey_850" />
             <xs:enumeration value="@color/material_grey_900" />
+            <xs:enumeration value="@color/price_green" />
             <xs:enumeration value="@color/primary_dark_material_dark" />
             <xs:enumeration value="@color/primary_dark_material_light" />
             <xs:enumeration value="@color/primary_material_dark" />
@@ -24038,6 +24061,7 @@
             <xs:enumeration value="@color/secondary_text_default_material_light" />
             <xs:enumeration value="@color/secondary_text_disabled_material_dark" />
             <xs:enumeration value="@color/secondary_text_disabled_material_light" />
+            <xs:enumeration value="@color/semitransparent_black" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_dark" />
             <xs:enumeration value="@color/switch_thumb_disabled_material_light" />
             <xs:enumeration value="@color/switch_thumb_material_dark" />

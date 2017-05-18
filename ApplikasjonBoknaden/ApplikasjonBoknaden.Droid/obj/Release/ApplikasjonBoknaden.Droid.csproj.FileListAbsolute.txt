@@ -138,5 +138,7 @@ C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBokn
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\res\values\colors.xml
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\res\drawable\logo.png
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\res\drawable\logohvit.png
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\res\layout\dialoguefragmentpoppupmessagelayout.xml
+C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\res\layout\background_semitransparentwhite.xml
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\obj\Release\ApplikasjonBoknaden.Droid.dll.mdb
 C:\Users\cam-b\Documents\ApplikasjonBoknaden\ApplikasjonBoknaden\ApplikasjonBoknaden.Droid\bin\Release\ApplikasjonBoknaden.Droid.dll.mdb

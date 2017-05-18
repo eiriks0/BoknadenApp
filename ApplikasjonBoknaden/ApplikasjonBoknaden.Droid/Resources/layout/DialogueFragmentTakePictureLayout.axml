@@ -645,7 +645,7 @@
                     p7:cardBackgroundColor="@color/white"
                     style="@style/button_text"
                     android:visibility="visible"
-                    android:layout_width="370.0dp"
+                    android:layout_width="350.0dp"
                     android:layout_height="match_parent">
                     <LinearLayout
                         android:orientation="vertical"

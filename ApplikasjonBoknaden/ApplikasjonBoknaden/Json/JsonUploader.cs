@@ -24,7 +24,73 @@ namespace ApplikasjonBoknaden.Json
         private static string AutenticationURL = "http://146.185.164.20:57483/authenticate"; //http://146.185.164.20:57483/authenticate
         private static string UsersURL = "http://146.185.164.20:57483/users"; //http://146.185.164.20:57483/users //http://10.0.0.58:57483/users
         private static string AdURL = "http://146.185.164.20:57483/ads";
+        private static string VerifyURL = "http://146.185.164.20:57483/verifyuser";
 
+
+        public static async Task<HttpResponseMessage> SendNewVerificationMail(string header)
+        {
+            System.Diagnostics.Debug.WriteLine("sender");
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
+                    content.Headers.Add("boknaden-verify", header);
+                    HttpResponseMessage response = await client.PutAsync(VerifyURL, content);
+                    var result = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine(result);
+                    System.Diagnostics.Debug.WriteLine("har sendt");
+                    return response;
+                }
+
+
+            }
+            catch (Exception exception)
+            {
+                System.Diagnostics.Debug.WriteLine("Nay");
+                System.Diagnostics.Debug.WriteLine("CAUGHT EXCEPTION:");
+                System.Diagnostics.Debug.WriteLine(exception);
+                return null;
+            }
+        }
+
+        public static async Task<HttpResponseMessage> AddNewAdPack(string header, Json.Ad sentad)
+        {
+            try
+            {
+                Json.NewAdTest newad = new Json.NewAdTest();
+                newad.courseid = 1;
+                newad.adname = sentad.adname;
+                newad.text = sentad.text;
+                newad.aditems = new List<Json.Aditem>();
+
+                foreach (Json.Aditem item in sentad.aditems)
+                {
+                    newad.aditems.Add(item);
+                }
+
+                string jsonData = JsonConvert.SerializeObject(newad);
+                System.Diagnostics.Debug.WriteLine(jsonData);
+
+                using (var client = new HttpClient())
+                {
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    content.Headers.Add("boknaden-verify", header);
+                    HttpResponseMessage response = await client.PostAsync(AdURL, content);
+                    var result = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine(result);
+
+                    return response;
+                }
+            }
+            catch (Exception exception)
+            {
+                System.Diagnostics.Debug.WriteLine("Nay");
+                System.Diagnostics.Debug.WriteLine("CAUGHT EXCEPTION:");
+                System.Diagnostics.Debug.WriteLine(exception);
+                return null;
+            }
+        }
 
 
 
@@ -91,6 +157,7 @@ namespace ApplikasjonBoknaden.Json
 
                     var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PostAsync(AdURL, content);
+            
                     return response;
 
                     // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
@@ -107,51 +174,35 @@ namespace ApplikasjonBoknaden.Json
             }
         }
 
-        public static async Task<string> AutenticateUser(UserOld user)
+        public static async Task<LoginInfo> AutenticateUser(UserOld user)
         {
+            LoginInfo loginInfo = new LoginInfo();
             UserCredentialsUsername ucu = new UserCredentialsUsername();
             ucu.passphrase = user.Password;
             ucu.username = user.Username;
 
-            string jsonData1 = JsonConvert.SerializeObject(ucu);
-
-           // string jsonData1 = @"{
-          //      ""username"" : ""SexyNic"", 
-          //  ""passphrase"" : ""halla""}";
+            string jsonData = JsonConvert.SerializeObject(ucu);
 
             try
             {
                 using (var client = new HttpClient())
                 {
-                    //client.BaseAddress = new Uri(UsersURL);
-
-
-                    var content = new StringContent(jsonData1, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = await client.PostAsync(AutenticationURL, content);
-
-            
-
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await Task.Run(() => client.PostAsync(AutenticationURL, content));
                     // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-                    JToken jt = await response.Content.ReadAsStringAsync();
-
+                    JToken jt = await Task.Run(() => response.Content.ReadAsStringAsync());
                     string result = jt.ToString();
-
                     if (response.IsSuccessStatusCode)
                     {
-                        return result;
+                        loginInfo.Token = result;
+                        return loginInfo;
                     }
                     else
                     {
                         result = "Feil brukernavn eller passord";
-                        return result;
+                        loginInfo.WrongLoginInfo = true;
+                        return loginInfo;
                     }
-
-                 //   Newtonsoft.Json.Linq.JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(result);
-                //    JToken token = JObject.Parse(jObject.ToString());
-                  //  var t = result.t
-
-                     //System.Diagnostics.Debug.WriteLine(t);
-                  //  return result;
                 }
             }
             catch (Exception exception)
@@ -162,7 +213,6 @@ namespace ApplikasjonBoknaden.Json
                 return null;
             }
         }
-
 
         /// <summary>
         /// http://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonConvert.htm
@@ -222,7 +272,7 @@ namespace ApplikasjonBoknaden.Json
         public static async Task RegisterNewUser(string username, string firstName, string lastName, string password, string email, string phone, string courseID)
         {
 
-            RootObjectTest newuser = new RootObjectTest();
+            Json.UserClasses.RootObjectTest newuser = new Json.UserClasses.RootObjectTest();
             newuser.username = username;
             newuser.passphrase = password;
             newuser.email = email;
@@ -359,17 +409,6 @@ namespace ApplikasjonBoknaden.Json
         }
     }
 
-    public class RootObjectTest
-    {
-        public string username { get; set; }
-        public string passphrase { get; set; }
-        public string email { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string phone { get; set; }
-        public string courseid { get; set; }
-    }
-
     public class NewAdTest
     {
         public int userid { get; set; }
@@ -432,6 +471,7 @@ namespace ApplikasjonBoknaden.Json
     // isbn: { type: Sequelize.STRING(13), allowNull: true },
     // deleted: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false }
     //  }
+
 
     public class User
     {
@@ -518,6 +558,12 @@ namespace ApplikasjonBoknaden.Json
         public int offset { get; set; }
         public int count { get; set; }
         public List<Ad> ads { get; set; }
+    }
+
+    public class LoginInfo
+    {
+        public string Token = "";
+        public bool WrongLoginInfo = false;
     }
 }
 

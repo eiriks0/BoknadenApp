@@ -32,6 +32,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:id="@+id/linearLayout3"
+            android:windowSoftInputMode="adjustNothing"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"

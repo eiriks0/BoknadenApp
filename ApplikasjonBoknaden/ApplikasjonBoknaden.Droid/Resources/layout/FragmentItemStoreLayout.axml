@@ -4,6 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/linearLayoutLogoHeader"
+        android:paddingTop="5.0dp"
+        android:paddingBottom="5.0dp"
+        android:background="@layout/Background_Blue"
+        android:layout_width="match_parent"
+        android:layout_height="30.0dp">
+        <ImageView
+            android:scaleType="fitCenter"
+            android:id="@+id/imageView1"
+            android:src="@drawable/logohvit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"

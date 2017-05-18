@@ -17,6 +17,8 @@ namespace ApplikasjonBoknaden.Droid.AdItemClasses
         private Json.Aditem _Product;
         private View Product_View;
         private ViewGroup Product_Parent;
+        private LinearLayout DateAndNameBox;
+        private LinearLayout AdItemDescriptionBox;
 
         public ProductMiniature(Context context) : base (context)
         {
